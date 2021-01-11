@@ -1,0 +1,111 @@
+.travels {
+	padding: 150px 0 75px;
+	font-size: 0;
+}
+.travels .sub_title .txt {
+	display: none;
+}
+.travels_wrap {
+	width: 100%;
+	max-width: 1440px;
+	margin: auto;
+}
+.travels_wrap a {
+	position: relative;
+	display: inline-block;
+	/* width: 20%;  */
+	width: calc(20% - 12px);
+	height: 220px;
+	margin: 0px 6px 120px 6px;
+	vertical-align: top;
+}
+.travels_wrap a .thumbnails {
+	position: relative;
+	width: 100%; height: 100%;
+	overflow: hidden;
+}
+.travels_wrap a .thumbnails .loader {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	transition: transform 0.35s;
+}
+.travels_wrap a:hover .thumbnails .loader {
+	transform: scale(1.1);
+}
+.travels_wrap a .thumbnails .detail_view {
+	position: absolute;
+	top: 0; bottom: 0; right: 70px; left: 70px;
+	margin: auto;
+	width: auto; height: 50px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+	color: #fff;
+	letter-spacing: 0.04em;
+	line-height: 50px;
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	text-align: center;
+	transition: color 0.35s, background 0.35s;
+}
+.travels_wrap a:hover .thumbnails .detail_view {
+	color: #1d5799;
+	background: #fff;
+}
+.travels_wrap a .name {
+	position: absolute;
+	bottom: -40px; right: 0; left: 0;
+	margin: auto;
+	font-size: 18px;
+	letter-spacing: 0.05em;
+	color: #888;
+	text-align: center;
+	transition: color 0.35s;
+}
+.travels_wrap a:hover .name {
+	color: #333;
+}
+
+
+@media ( max-width: 1420px ) {
+	.travels_wrap a {
+		width: calc(33.3% - 20px);
+		height: 290px;
+	}
+}
+
+@media ( max-width: 1024px) {
+	.travels {
+		padding: 30px 0 80px;
+	}
+	.travels .sub_title .txt {
+		display: block;
+		margin-bottom: 40px;
+	}
+	.travels_wrap {
+		max-width: 100%;
+		padding-top: 20px;
+	}
+	.travels_wrap a {
+		width: 100%;
+		height: 50vw;
+		max-height: 200px;
+		margin: 6px 0 0 0;
+	}
+
+	.travels_wrap a .thumbnails .detail_view {
+		display: none;
+	}
+
+
+	.travels_wrap a .name {
+		bottom: 15px; right: 20px; left: auto;
+		font-size: 14px;
+		color: #fff;
+		text-shadow: 0 0 4px rgba(0,0,0,0.8);
+	}
+	.travels_wrap a:hover .name {
+		color: #fff;
+	}
+}

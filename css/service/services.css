@@ -1,0 +1,110 @@
+.services {
+	padding: 150px 0 135px;
+	background: #eee;
+}
+.services .sub_title .txt {
+	display: none;
+}
+.services_wrap {
+	width: 100%;
+	max-width: 1400px;
+	margin: auto;
+	text-align: center;
+}
+.services_wrap a {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 4vw;
+}
+.services_wrap a .icon {
+	display: inline-block;
+	width: 120px; height: 120px;
+	margin: 0 4vw;
+	font-size: 40px;
+	line-height: 120px;
+	color: #444;
+	border-radius: 100%;
+	background: #fff;
+	box-shadow: 1px 0 1px rgba(0,0,0,0.2);
+	text-align: center;
+	transition: background 0.2s, color 0.2s;
+}
+.services_wrap a:hover .icon {
+	color: #fff;
+	background: #1d5799;
+}
+.services_wrap a .name {
+	margin-top: 30px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #3d3935;
+	letter-spacing: 0.05em;
+}
+.services_wrap a .content {
+	margin-top: 20px;
+	font-size: 15px;
+	color: #888;
+	letter-spacing: -0.02em;
+}
+.services_wrap a .detail_view {
+	position: relative;
+	display: inline-block;
+	width: 150px; height: 36px;
+	margin-top: 14px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color: #1d5799;
+	letter-spacing: 0.08em;
+	line-height: 36px;
+	text-transform: uppercase;
+	text-align: center;
+}
+.services_wrap a .detail_view::after {
+	content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	width: 0; height: 100%;
+	background: rgba(64,136,199,0.2);
+	transition: width 0.35s;
+}
+.services_wrap a:hover .detail_view::after {
+	width: 100%;
+}
+
+@media ( max-width: 1024px ) {
+	.services {
+		padding: 30px 0 80px;
+		background: #fff;
+	}
+	.services .sub_title .txt {
+		display: block;
+		margin-bottom: 40px;
+	}
+	.services_wrap {
+		max-width: 100%;
+		padding-top: 30px;
+	}
+	.services_wrap a {
+		margin-bottom: 40px;
+		width: auto;
+	}
+	.services_wrap a .icon {
+		width: 16vw;
+		height: 16vw;
+		font-size: 6vw;
+		line-height: 16vw;
+		margin: 0 7vw;
+		background: #f6f6f6;
+	}
+	.services_wrap a .name {
+		margin-top: 2vw;
+		font-size: 13px;
+	}
+	
+	.services_wrap a .content,
+	.services_wrap a .detail_view {
+		display: none;
+	}
+}

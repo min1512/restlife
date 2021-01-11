@@ -1,0 +1,199 @@
+
+li{
+	list-style: none;
+}
+
+.contents_inner{
+	width: 1100px;
+	padding: 150px 0 110px 200px;
+}
+.shopping_all{
+	margin-bottom: 42px;
+}
+.title_style{
+	font-size: 22px;
+	margin-bottom: 35px;
+	line-height: 30px;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+.cpp_goods_list:after{
+	display: block;
+	content: '';
+	clear: both;
+	height: 0;
+
+}
+
+.cpp_goods_item{
+	width: 320px;
+	height: 320px;
+	float: left;
+	list-style: none;
+}
+.cpp_goods_img img{
+	width: 320px;
+	height: 320px;
+}
+.cpp_goods_link{
+	display: block;
+	position: relative;
+	color: black;
+	font-size: 14px;
+	line-height: 20px;
+}
+.cpp_goods_img{
+	display: block;
+}
+.tag-wrap{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+.cpp_goods_info{
+	display: block;
+	height: 61px;
+	padding: 20px 0 0 0;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 3;
+	opacity: 0;
+	transition: opacity;
+}
+.cpp_goods_bg{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: black;
+	opacity: 0.05;
+}
+.cpp_goods_info_bg{
+	display: block;
+	width: 100%;
+	height: 81px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	opacity: 0;
+	transition: opacity;
+	z-index: 2;
+}
+
+.weekely_best{
+	margin-bottom: 57px;
+	height: auto;
+}
+.basic_goods_list:after{
+	display: block;
+	content: '';
+	height: 0;
+	clear: both;
+}
+.goods_list{
+	margin-top: 20px;
+}
+.basic_goods_list .goods_item{
+	margin-left: 20px;
+}
+.goods_item{
+	transition: linear;
+	width: 237px;
+	float: left;
+	margin-bottom: 40px;
+	position: relative;
+}
+.goods_item .img{
+	height: 237px;
+	position: relative;
+	margin-bottom: 16px;
+}
+.goods_item .img .img_link{
+	display: block;
+	width: 100%;
+	margin-bottom: 16px;
+	position: relative;
+}
+.img img{
+	width: 237px;
+	height: 237px;
+	display: block;
+}
+.goods_item .goods_item_link{
+	position: relative;
+	display: block;
+}
+.goods_item .brand{
+	display: block;
+	width: 100%;
+	color: black;
+	font-size: 14px;
+	line-height: 21px;
+	height: 21px;
+	overflow: hidden;
+	word-break: break-all;
+}
+.goods_item .name{
+	margin-top: 1px;
+	margin-bottom: 3px;
+	display: block;
+	width: 100%;
+	color: #666;
+	line-height: 18px;
+	height: 36px;
+	overflow: hidden;
+	font-size: 12px;
+	word-break: break-all;
+}
+.goods_item .price{
+	display: block;
+	width: 100%;
+	color: black;
+	line-height: 21px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.goods_item .dc_price{
+	color: #999999;
+	font-weight: normal;
+	padding-left: 4px;
+}
+.goods_item .goods_item_link .spr_ico_arrow_down{
+	vertical-align: 0;
+	margin: -1px 3px 0 3px;
+}
+.spr_ico_arrow_down{
+	display: inline-block;
+	width: 7px;
+	height: 9px;
+	background-position: 0px -64px;
+	background-image: url("http://etahome.co.kr/assets/images/common/sprite-common.png");
+	background-repeat: no-repeat;
+}
+.goods_item .icon_block{
+	display: block;
+	width: 100%;
+	line-height: 21px;
+	height: 21px;
+	margin-top: 10px;
+}
+.spr_ico_coupon{
+	display: inline-block;!important;
+	width: 54px;
+	height: 19px;
+	background-position: 0px -644px;
+}
+
+.spr-common {
+	background-image: url("http://etahome.co.kr/assets/images/common/sprite-common.png");
+	background-repeat: no-repeat;
+}
+
+
+
+

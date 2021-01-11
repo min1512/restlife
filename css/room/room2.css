@@ -1,0 +1,42 @@
+.room2 {
+	padding: 140px 0 40px;
+}
+.room2_wrap {
+	max-width: 1400px;
+	margin: auto;
+}
+
+.room2_wrap .btn_rooms {
+	display: none;
+}
+
+
+@media ( max-width: 1024px ) {
+	.room2 {
+		padding: 40px 0 0;
+	}
+	.room2_wrap {
+		max-width: calc(100% - 30px);
+		margin: auto;
+	}
+
+	.room2_wrap .btn_rooms {
+		display: inline-block;
+		width: 100%; height: 47px;
+		margin-bottom: 50px;
+		font-size: 14px;
+		line-height: 47px;
+		font-weight: bold;
+		color: #1d5799;
+		border: 1px solid #1d5799;
+		text-align: center;
+		transition: background 0.35s, color 0.35s;
+	}
+	.room2_wrap .btn_rooms i {
+		margin-left: 10px;
+	}
+	.room2_wrap .btn_rooms:hover {
+		background: #1d5799;
+		color: #fff;
+	}
+}

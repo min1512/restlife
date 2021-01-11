@@ -1,0 +1,235 @@
+@charset "utf-8";
+
+.vimeoWrap {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+	background: url(http://img.einet.kr/P201805016/responsive/main/movieBg.jpg) 0 0 no-repeat;
+	background-size: cover;
+}
+.vimeoWrap iframe,
+.vimeoWrap object,
+.vimeoWrap embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.vimeo-area {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	width: 100%; height: 100%;
+	margin: auto;
+}
+
+.firstMovie .vimeoSlogan {
+	position: absolute;
+	top: 50%; right: 0; left: 0;
+	margin: auto;
+	transform: translateY(-50%);
+	text-align: center;
+}
+.firstMovie .vimeoSlogan p {
+	margin-bottom: 46px;
+	line-height: 100px;
+	font-family:'Lato', sans-serif;
+	font-size: 80px;
+	font-weight: 300;
+	color:#fff;
+	text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.54);
+	text-align: center;
+}
+.firstMovie .vimeoSlogan p b {
+	display: block;
+	transform: translateY(50%);
+}
+.firstMovie .vimeoSlogan p span {
+	display: block;
+	transform: translateY(50%);
+	transition-delay: 0.35s;
+}
+.firstMovie .vimeoSlogan .vimeo_play {
+	width: 136px; height: 136px;
+	margin: auto;
+	background-image: url(http://img.einet.kr/P201805016/responsive/btn_video.png);
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	cursor: pointer;
+	transform: translateY(50%);
+	transition: background-image 0.5s;
+}
+.firstMovie .vimeoSlogan .vimeo_play:hover {
+	background-image: url(http://img.einet.kr/P201805016/responsive/btn_video_ov.png);
+}
+.firstMovie .vimeoSlogan .vimeo_play i {
+	margin-right:10px;
+	padding: 8px 8px 8px 14px;
+	color:#fff;
+	font-size:16px;
+	border:2px solid #fff;
+	border-radius:50%;
+}
+.firstMovie .vimeoSlogan .vimeo_play span {
+	color:#fff;
+	font-family:'Lato';
+	font-size:18px;
+	line-height:70px;
+	font-weight:bold;
+	text-shadow:0px 2px 6px rgba(0, 0, 0, 0.46);
+}
+
+/* 외부 css 가져오기 */
+.mfp-bg {
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1042;
+    overflow: hidden;
+    position: fixed;
+    background: #0b0b0b;
+    opacity: 0.8;
+}
+
+.mfp-wrap {
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1043;
+    position: absolute;
+    outline: 0 !important;
+    -webkit-backface-visibility: hidden;
+}
+
+.mfp-container {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%; right:0; left: 0;
+    transform: translateY(-50%);
+    padding: 0 8px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.mfp-content {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 1045;
+}
+
+.mfp-content {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 1045;
+}
+
+.mfp-auto-cursor .mfp-content {
+    cursor: auto;
+}
+
+.mfp-iframe-holder .mfp-content {
+    line-height: 0;
+    width: 100%;
+    max-width: 900px;
+}
+
+.mfp-iframe-scaler {
+	width: 100%; height: 0;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.mfp-close {
+    width: 44px; height: 44px;
+    line-height: 44px;
+    position: absolute;
+    top: 0; right: 0;
+    text-decoration: none;
+    text-align: center;
+    opacity: 0.65;
+    padding: 0 0 18px 10px;
+    color: #fff;
+    font-style: normal;
+    font-size: 28px;
+    font-family: 'Lato';
+}
+
+button.mfp-close {
+    overflow: visible;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: 0;
+    padding: 0;
+    z-index: 1046;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.mfp-close-btn-in .mfp-close {
+    color: #333;
+}
+
+.mfp-iframe-holder .mfp-close, .mfp-image-holder .mfp-close {
+    color: #fff;
+    right: -6px;
+    text-align: right;
+    padding-right: 6px;
+    width: 100%;
+}
+
+.mfp-iframe-holder .mfp-close {
+	top:-40px;
+}
+
+.mfp-iframe-scaler iframe {
+    position: absolute;
+    display: block;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    -webkit-box-shadow: 0 0 8px rgba(0,0,0,.6);
+    box-shadow: 0 0 8px rgba(0,0,0,.6);
+    background: #000;
+}
+
+
+@media (max-width:1400px) {
+	.firstMovie .vimeoSlogan p {
+		margin-bottom:10px;
+		font-size: 32px;
+		line-height: 32px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.firstMovie {
+		margin-top: 50px;
+		padding-bottom: 15px;
+		background: #0e1640;
+	}
+	.vimeoWrap iframe,
+	.vimeoWrap object,
+	.vimeoWrap embed {
+		display: none;
+	}
+	.firstMovie .movie { position: relative; }
+
+	.firstMovie .vimeoSlogan p {
+		font-size: 26px;
+		line-height: 26px;
+	}
+	.firstMovie .vimeoSlogan .vimeo_play {
+		width: 67px; height: 67px;
+	}
+}

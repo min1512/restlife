@@ -1,0 +1,26 @@
+.main6 {
+	height: 630px;
+	overflow: hidden;
+}
+.main6 .loader {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+}
+.main6 img {
+	position: absolute;
+	right: 17vw; bottom: 200px;
+	max-width: 100%;
+	z-index: 1;
+}
+
+
+@media ( max-width: 1024px ) {
+	.main6 {
+		height: 40vw;
+	}
+	.main6 img {
+		right: 45px; bottom: 40px;
+		width: 19%;
+	}
+}

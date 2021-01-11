@@ -1,0 +1,160 @@
+.main1 {
+	font-size: 0;
+	overflow: hidden;
+}
+.main1_top {
+	position: relative;
+	height: 480px;
+	padding-top: 140px;
+	background: url(http://img.einet.kr/P202002026/responsive/main/1_bg.png) top center no-repeat;
+	background-size: cover;
+}
+.main1_top .title {
+	padding-top: 140px;
+	text-align: center;
+}
+.main1_bottom_wrap {
+	position: relative;
+	background: url(http://img.einet.kr/P202002026/responsive/main/1_bgDeco.jpg) center center repeat;
+}
+.main1_bottom_wrap .main1_bottom {
+	position: relative;
+	padding: 100px 0 70px;
+	width: 100%;
+	max-width: 1460px;
+	margin: auto;
+	text-align: center;
+}
+.main1_bottom a {
+	position: relative;
+	display: inline-block;
+	width: 327px;
+	height: 360px;
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-bottom: 30px;
+	background: #fff;
+	vertical-align: top;
+	box-shadow: 0 0 20px #e1e1e1;
+}
+.main1_bottom a .icon {
+	padding-top: 60px;
+}
+.main1_bottom a .con_ttl {
+	padding-top: 35px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #444;
+}
+.main1_bottom a .con_txt {
+	margin-top: 25px;
+	font-size: 15px;
+	line-height: 22px;
+	color: #888;
+}
+.main1_bottom a .btn_view {
+	position: relative;
+	display: inline-block;
+	top: 38px; right: 0; left: 0;
+	margin: auto;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	color: #444;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	transition: color 0.35s;
+}
+.main1_bottom a:hover .btn_view {
+	color: #1d5799;
+}
+
+.main1_bottom a .btn_view::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	width: 0; height: 1px;
+	background: #1d5799;
+	transition: width 0.35s;
+}
+.main1_bottom a:hover .btn_view::after {
+	width: 100%;
+}
+
+
+
+
+@media ( max-width: 1024px ) {
+	.main1_top {
+		max-width: calc(100% - 30px);
+		height: auto;
+		margin: auto;
+		padding-top: 0px;
+		background: none;
+	}
+	.main1_top .sub_title .eng {
+		transform: translateY(0);
+		font-size: 40px;
+	}
+	.main1_top .sub_title .txt {
+		display: none;
+	}
+	.main1_top .sub_title a.btn_sub {
+		display: none;
+	}
+
+	.main1_bottom_wrap {
+		margin-top: 40px;
+		background: transparent;
+		border-top: 1px solid #cecece;
+		border-bottom: 1px solid #cecece;
+	}
+	.main1_bottom_wrap .main1_bottom {
+		padding: 0;
+		max-width: 100%;
+	}
+	.main1_bottom_wrap .main1_bottom::before {
+		content: '';
+		position: absolute;
+		top: 0; bottom: 0; left: 50%;
+		margin: auto;
+		width: 1px;
+		background: #cecece;
+		z-index: 1;
+	}
+	.main1_bottom_wrap .main1_bottom::after {
+		content: '';
+		position: absolute;
+		top: 50%; right: 0; left: 0;
+		margin: auto;
+		height: 1px;
+		background: #cecece;
+		z-index: 1;
+	}
+	.main1_bottom a {
+		width: 50%;
+		height: 158px;
+		margin: 0;
+	}
+	.main1_bottom a .icon {
+		padding-top: 25px;
+	}
+	.main1_bottom a .icon img {
+		max-width: 68px;
+	}
+	.main1_bottom a .con_ttl {
+		padding-top: 10px;
+		font-size: 14px;
+		letter-spacing: -1.12px;
+	}
+	.main1_bottom a .con_txt {
+		display: none;
+	}
+	.main1_bottom a .btn_view {
+		top: 16px;
+		font-size: 14px;
+		color: #1d5799;
+	}
+
+}

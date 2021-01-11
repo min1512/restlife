@@ -1,0 +1,202 @@
+.about1 {
+	position: relative;
+	padding: 160px 0;
+	font-size: 0;
+	text-align: right;
+}
+.about1::before {
+	content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 400px; left: 0;
+	margin: auto;
+	background: #f6f6f6;
+}
+.about1_wrap {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	max-width: 1660px;
+}
+.about1_wrap .about1_top {
+	position: relative;
+	text-align: left;
+}
+.about1_wrap .about1_top .lImg {
+	display: inline-block;
+	width: 460px;
+	height: 622px;
+	vertical-align: top;
+	transform: translateY(50px);
+}
+.about1_wrap .about1_top .rImg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 470px;
+	display: inline-block;
+	width: calc(100% - 470px);
+	height: 622px;
+	vertical-align: top;
+	transform: translateY(50px);
+	transition-delay: 0.2s;
+}
+.about1_wrap .about1_bottom {
+	position: relative;
+	margin-top: 10px;
+	text-align: right;
+}
+.about1_wrap .about1_bottom .box {
+	position: absolute;
+	bottom: 120px; left: 100px;
+	width: 1000px; height: 460px;
+	background: url(http://img.einet.kr/P202002026/responsive/about/1_bg.png) 50px 30px no-repeat #fff;
+	box-shadow: 2px 0 4px rgba(0,0,0,0.2);
+	text-align: center;
+	transform: translateY(50px);
+	transition-delay: 0.6s;
+	z-index: 1;
+}
+.about1_wrap .about1_bottom .box .eng {
+	padding-top: 90px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 48px;
+	letter-spacing: 0.02em;
+	color: #333;
+	text-transform: uppercase;
+}
+.about1_wrap .about1_bottom .box .txt_pc {
+	padding-top: 40px;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.04em;
+	color: #777;
+}
+.about1_wrap .about1_bottom .box .txt_mobile {
+	display: none;
+}
+.about1_wrap .about1_bottom .box .btn_sub {
+	margin-top: 60px;
+}
+.about1_wrap .about1_bottom .box .deco {
+	position: absolute;
+	bottom: 0; right: 5px;
+}
+.about1_wrap .about1_bottom .bImg {
+	display: inline-block;
+	width: 780px;
+	height: 480px;
+	vertical-align: top;
+	transform: translateY(50px);
+	transition-delay: 0.4s;
+}
+
+@media ( max-width: 1400px ) {
+	.about1::before {
+		bottom: 0;
+	}
+	.about1_wrap .about1_bottom {
+		text-align: left;
+	}
+	.about1_wrap .about1_bottom .box {
+		position: relative;
+		bottom: auto; left: auto;
+		display: inline-block;
+		width: 800px;
+		height: 480px;
+		margin-right: 10px;
+		box-shadow: none;
+	}
+	.about1_wrap .about1_bottom .box .deco img {
+		max-width: 60%;
+	}
+	.about1_wrap .about1_bottom .bImg {
+		display: inline-block;
+		width: calc(100% - 810px);
+	}
+
+
+}
+
+
+@media ( max-width: 1024px ) {
+	.about1 {
+		padding: 85px 0 50px;
+		text-align: left;
+	}
+	.about1::before {
+		top: 192px;
+		background: #eee;
+	}
+	.about1_wrap {
+		display: block;
+		max-width: calc(100% - 30px);
+		margin: auto;
+	}
+	.about1_wrap .about1_top .lImg {
+		display: none;
+		/* width: 100%;
+		height: 52vw;
+		background-position: right bottom;
+		transform: translateY(10px); */
+	}
+	.about1_wrap .about1_top .rImg {
+		position: relative;
+		top: auto; right: auto; bottom: auto; left: auto;
+		display: block;
+		margin-top: 10px;
+		width: 100%;
+		height: 52vw;
+		transform: translateY(10px);
+	}
+	.about1_wrap .about1_bottom {
+		margin-top: 15px;
+	}
+	.about1_wrap .about1_bottom .box {
+		position: relative;
+		bottom: auto; left: auto;
+		width: 100%; height: auto;
+		padding-bottom: 50px;
+		background: url(http://img.einet.kr/P201805016/responsive/about/1_bg.png) center 20px no-repeat #fff;
+		background-size: 69px 43px;
+		transform: translateY(10px);
+		transition-delay: 0.4s;
+	}
+	.about1_wrap .about1_bottom .box .eng {
+		padding-top: 70px;
+		font-size: 40px;
+		line-height: 26px;
+	}
+	.about1_wrap .about1_bottom .box .txt_pc {
+		display: none;
+	}
+	.about1_wrap .about1_bottom .box .txt_mobile {
+		display: block;
+		margin-top: 20px;
+		font-size: 14px;
+		line-height: 22px;
+		color: #888;
+	}
+	.about1_wrap .about1_bottom .box .txt_mobile p {
+		margin-bottom: 20px;
+		color: #1d5799;
+	}
+	.about1_wrap .about1_bottom .box .btn_sub {
+		display: none;
+	}
+	.about1_wrap .about1_bottom .box .deco {
+		right: 0; left: 0;
+		margin: auto;
+	}
+	.about1_wrap .about1_bottom .box .deco img {
+		max-width: 120px;
+	}
+	.about1_wrap .about1_bottom .bImg {
+		display: block;
+		margin-top: 10px;
+		width: 100%;
+		height: 52vw;
+		transform: translateY(10px);
+		transition-delay: 0.6s;
+	}
+
+}

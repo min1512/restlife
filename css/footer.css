@@ -1,0 +1,18 @@
+#footer {border-top: 1px solid #dbdbdb;}
+/* 푸터 */
+.footer {text-align: center; padding: 30px 50px;}
+.footer li {position: relative; display: inline; padding: 0 7px 0 10px; white-space: nowrap;}
+.footer li:before {content: ''; width: 1px; height: 12px; background-color: #dbdbdb; position: absolute; left: 0; top: 2px;}
+.footer li a{color: black; font-family: 'Lato', sans-serif}
+.footer li:first-child:before {width: 0;}
+.footer address {padding-top: 15px;}
+.footer address a{color: black; font-family: 'Lato', sans-serif}
+
+@media (max-width: 400px) {
+	.footer li {position: relative; display: none; padding: 0 7px 0 10px; white-space: nowrap;}
+}
+
+.show{display: block;}
+.hide{display: none;}
+
+

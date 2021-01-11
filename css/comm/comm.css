@@ -1,0 +1,83 @@
+.commTab {
+	position: relative;
+	margin-top: 20px;
+	text-align: center;
+}
+.commTab::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	height: 1px;
+	background: #d8d8d8;
+}
+.commTab a {
+	position: relative;
+	display: inline-block;
+	min-width: 80px; height: 60px;
+	margin: 0 45px;
+	padding: 0 20px;
+	font-size: 18px;
+	line-height: 60px;
+	color: #777;
+	vertical-align: top;
+	transition: color 0.35s;
+}
+.commTab a:hover,
+.commTab a.SEL {
+	font-weight: bold;
+	color: #1d5799;
+}
+.commTab a::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	width: 0; height: 3px;
+	background: #1d5799;
+	z-index: 1;
+	transition: width 0.35s;
+}
+.commTab a:hover::after,
+.commTab a.SEL::after {
+	width: 100%;
+}
+
+@media (max-width: 1024px) {
+	.comm {
+		margin-top: 50px;
+		height: 40vw;
+	}
+	.comm .title {
+		font-size: 24px;
+		letter-spacing: 2.5px;
+	}
+	.commTab {
+		margin-top: 10px;
+		height: 50px;
+	}
+	.commTab a {
+		min-width: 50px; height: 50px;
+		margin: 0 15px;
+		padding: 0;
+		font-size: 16px;
+		line-height: 50px;
+	}
+	.commTab a::after {
+		height: 2px;
+	}
+}
+
+@media (max-width: 320px) {
+	.commTab {
+		margin-top: 8px;
+		height: 45px;
+	}
+	.commTab a {
+		min-width: 44px; height: 45px;
+		margin: 0 8px;
+		font-size: 14px;
+		line-height: 45px;
+	}
+	
+}

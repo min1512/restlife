@@ -1,0 +1,26 @@
+.fac2 .bImg {
+	padding-top: 56.25%;
+}
+.fac2 .txt {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	margin: auto;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	font-weight: 100;
+	color: #fff;
+	letter-spacing: 0.6em;
+	text-shadow: 0 0 4px rgba(0,0,0,0.1);
+	text-transform: uppercase;
+	transform: translateY(-50%);
+	text-align: center;
+}
+
+
+@media ( max-width: 1024px ) {
+	.fac2 .txt {
+		display: none;
+	}
+}

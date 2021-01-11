@@ -1,0 +1,229 @@
+@charset "utf-8";
+.firstSliderWrap {
+	height: 100vh;
+}
+
+.firstSlider, .owl-carousel, .owl-stage-outer, .owl-stage, .owl-item { height: 100%; display: block; }
+.firstSlider {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.firstSlider .loader {
+	width: 100%; height: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* 슬라이더 버튼 */
+.owl-nav {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+.owl-carousel .owl-nav button {
+	position: absolute;
+	top: 50%;
+	margin-top: -48px;
+	width: 96px; height: 96px;
+	border-radius: 100%;
+}
+.owl-carousel .owl-nav button .slideArrow {
+	display: inline-block;
+	width: 100%; height: 100%;
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+.owl-carousel .owl-nav button:hover .slideArrow {
+	opacity: 0.6;
+}
+.owl-carousel .owl-nav button i {
+	position: absolute;
+	top: 0; left: 0;
+	display: inline-block;
+	width: 100%; height: 100%;
+	font-size: 48px;
+	line-height: 96px;
+	color: #fff;
+	text-align: center;
+	z-index: 1;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+	left: 20px;
+}
+.owl-carousel .owl-nav button.owl-next {
+	right: 20px;
+}
+
+
+/* 슬라이더 슬로건 */
+.firstSliderWrap .sloganWrap {
+	position: absolute;
+	top: 50%; left: 50%;
+	margin: auto;
+	transform: translate(-50%,-50%);
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 600;
+	color: #fff;
+	text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.26);
+	text-align: center;
+	z-index: 30;
+}
+.firstSliderWrap .sloganWrap h5 {
+	font-size: 70px;
+	font-size: 3.42vw;
+	line-height: 60px;
+	line-height: 3.12vw;
+	transform: translateY(50%);
+	text-transform: uppercase;
+}
+.firstSliderWrap .sloganWrap h6 {
+	margin-top: 1vw;
+	font-size: 22px;
+	color: #fff;
+	transform: translateY(50%);
+	transition-delay: 0.5s;
+}
+
+/* 슬라이더 view */
+.firstSliderWrap .viewObj {
+	position: absolute;
+	right: 53px; bottom: 34px;
+	font-size: 24px;
+	z-index: 10;
+}
+.firstSliderWrap .viewObj i {
+	display: inline-block;
+	margin: 0 3px;
+	color: #fff;
+	text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+	z-index: 0;
+	opacity: 0.5;
+	cursor: pointer;
+}
+.firstSliderWrap .viewObj i.active {
+	opacity: 1;
+}
+
+
+.firstSliderWrap .pageObj {
+	display:none;
+	position: relative;
+	height: 35px;
+	font-family: 'Lato';
+	font-size: 12px;
+	line-height: 35px;
+	color: #444;
+	background: #fff;
+	z-index: 1;
+	text-align:center;
+}
+.firstSliderWrap .pageObj .all:before {
+	content: ' / ';
+}
+
+/* 슬라이더 dot */
+.firstSliderWrap .owl-dots {
+	position:absolute;
+	right:0; bottom: 105px; left:0;
+	width: 600px;
+	margin:auto;
+	text-align:center;
+}
+
+.firstSliderWrap .owl-dot {
+	width: 9px; height:9px;
+	margin: 3px 11px;
+	background-color: #fff !important;
+	border-radius: 30px;
+	transition: width 0.5s;
+}
+
+.firstSliderWrap .owl-dot.active {
+	width: 46px;
+}
+
+.firstSliderWrap .scrollDown {
+	position: absolute;
+	bottom: 26px; right: 0; left: 0;
+	margin: auto;
+	width: 65px; height: 45px;
+	background: url(http://img.einet.kr/P201805016/responsive/scrollDown.png) 0 0 no-repeat;
+	z-index: 30;
+}
+
+@media ( max-width: 768px ) {
+	.firstSliderWrap {
+		height: 70vh;
+	}
+	.firstSlider .owl-carousel .owl-item img {
+		width: 100%;
+		height: 100%;
+		transition: width 0.3s;
+	}
+	.firstSliderWrap .viewObj {
+		right: 20px; bottom: 20px;
+		width: 62px;
+	}
+	.firstSliderWrap .viewObj i {
+		color: rgba(255, 255, 255, 0.5);
+		z-index: 10;
+		cursor: pointer;
+	}
+	.firstSliderWrap .viewObj i.active {
+		color:rgba(255, 255, 255, 1);
+	}
+
+	.owl-nav {
+		display:none;
+	}
+
+	.firstSliderWrap .scrollDown {
+		display: none;
+	}
+}
+@media ( max-width: 768px ) {
+	.firstSliderWrap {
+		height: auto;
+		padding-top: 56.25%;
+	}
+	.firstSlider {
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		margin: auto;
+	}
+	.firstSlider .owl-carousel .owl-item img {
+		width: auto;
+		object-fit: cover;
+		object-position: center;
+	}
+	.owl-nav {
+		bottom: 8.6%;
+	}
+
+	.firstSliderWrap .sloganWrap {
+		display: none !important;
+	}
+	.firstSliderWrap .owl-dots {
+		bottom: -35px;
+		width: 100%; height: 35px;
+	}
+	.firstSliderWrap .owl-dot {
+		width: 5px; height: 5px;
+		margin: 0 5px;
+		background-color: #ccc !important;
+	}
+	.firstSliderWrap .owl-dot.active {
+		width: 23px;
+		background-color: #1d5799 !important;
+	}
+}
+
+@media ( max-width: 414px ) {
+	.firstSliderWrap .viewObj {
+		right: 10px; bottom: 20px;
+		font-size: 17px;
+	}
+}

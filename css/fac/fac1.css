@@ -1,0 +1,152 @@
+.fac1 {
+	padding: 150px 0;
+}
+.fac1 .title {
+	display: none;
+}
+.fac1_wrap {
+	position: relative;
+	width: 100%;
+	max-width: 1400px;
+	margin: auto;
+	text-align: right;
+}
+.fac1_wrap .subContent {
+	display: inline-block;
+	width: 800px; height: 400px;
+	padding-left: 60px;
+	text-align: left;
+	vertical-align: top;
+}
+.fac1_wrap .subContent .ttl {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 30px;
+	padding-bottom: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #222;
+}
+.fac1_wrap .subContent .ttl::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	height: 1px;
+	background: #1d5799;
+}
+.fac1_wrap .subContent .btn_wrap {
+	margin-top: 50px;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 700;
+	font-weight: 14px;
+}
+.fac1_wrap .subContent .btn_wrap a {
+	position: relative;
+	margin-right: 30px;
+	padding-bottom: 3px;
+	color: #888;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: color 0.35s;
+}
+.fac1_wrap .subContent .btn_wrap a::after {
+	content: '';
+	position: absolute;
+	bottom: 0; left: 0;
+	margin: auto;
+	width: 0; height: 1px;
+	background: #1d5799;
+	transition: width 0.35s;
+}
+.fac1_wrap .subContent .btn_wrap a:hover {
+	color: #1d5799;
+}
+.fac1_wrap .subContent .btn_wrap a:hover::after {
+	width: 100%;
+}
+.fac1_wrap .subContent .txtDeco {
+	position: absolute;
+	right: 0; bottom: 0;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #1d5799;
+	letter-spacing: 0.66em;
+	text-transform: uppercase;
+}
+.fac1_wrap .lImg {
+	position: absolute;
+	top: 0; right: 800px; bottom: 0; left: 0;
+	margin: auto;
+	width: auto;
+}
+
+
+
+
+@media ( max-width: 1420px ) {
+	.fac1_wrap {
+		max-width: calc(100% - 60px);
+	}
+	.fac1_wrap .subContent {
+		width: 50%;
+	}
+	.fac1_wrap .lImg {
+		width: 50%;
+	}
+	.fac1_wrap .subContent .txtDeco {
+		display: none;
+	}
+}
+
+
+
+@media ( max-width: 1024px ) {
+	.fac1 {
+		margin-top: 0;
+		padding: 35px 0 50px;
+		background: #f6f6f6;
+	}
+	.fac1 .title {
+		position: relative;
+		display: block;
+		padding: 35px 0;
+		text-align: center;
+	}
+	.fac1 .title .eng {
+		font-family: 'Titillium Web', sans-serif;
+		font-size: 40px;
+		font-weight: 600;
+		line-height: 25px;
+		color: #444;
+		text-transform: uppercase;
+		transform: translate(0,30%);
+	}
+	.fac1 .title .name {
+		margin-top: 16px;
+		font-size: 18px;
+		color: #666;
+		transform: translate(0,30%);
+		transition-delay: 0.4s;
+	}
+	.fac1_wrap {
+		max-width: calc(100% - 30px);
+	}
+	.fac1_wrap .subContent {
+		display: block;
+		width: 100%;
+		height: auto;
+		padding-left: 0;
+		text-align: center;
+	}
+	.fac1_wrap .subContent .ttl {
+		display: none;
+	}
+	.fac1_wrap .subContent .btn_wrap {
+		display: none;
+	}
+	.fac1_wrap .lImg {
+		display: none;
+	}
+}

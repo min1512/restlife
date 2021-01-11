@@ -1,0 +1,115 @@
+body{
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #00a0d2;
+	padding: 8px 12px;
+}
+
+.navbar_log{
+	font-size: 24px;
+	color: white;
+}
+
+.navbar_log i{
+	color: #8a6d3b;
+}
+
+.navbar_menu{
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+}
+
+.navbar_menu li {
+	padding: 8px 12px;
+}
+
+.navbar_menu li:hover{
+	background-color: #d49466;
+	border-radius: 4px;
+}
+
+.navbar_icons {
+	list-style: none;
+	color: white;
+	display: flex;
+	padding-left: 0;
+}
+
+.navbar_icons li {
+	padding: 8px 12px;
+}
+
+.navbar_toogleBtn{
+	display: none;
+	position: absolute;
+	right: 32px;
+	font-size: 24px;
+	color: #8a6d3b;
+}
+
+@media screen and (max-width: 768px) {
+	.navbar{
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 8px 24px;
+	}
+
+	.navbar_menu{
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.navbar_menu li{
+		width: 100%;
+		text-align: center;
+	}
+
+	.navbar_icons{
+		display: none;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.navbar_toogleBtn{
+		display: block;
+	}
+
+	.toogle{
+		background-image: url("/lsm/img/toggle.png");
+	}
+
+	.navbar_menu.active,
+	.navbar_icons.active{
+		display: flex;
+	}
+}
+
+
+.cpage {
+	clear:both;position:relative;overflow:visible;
+	width:100%;height:auto;
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:cover;
+}
+
+.cpage .TRAN{
+	opacity:1;
+	transition:all 1.5s;
+	transition-property:transform, opacity;
+}
+
+

@@ -1,0 +1,116 @@
+.about3 {
+	padding: 145px 0;
+}
+.about3_wrap {
+	width: 100%;
+	max-width: 1400px;
+	margin: 0 auto;
+	font-size: 0;
+}
+.about3_wrap .title {
+	position: relative;
+	text-align: center;
+}
+.about3_wrap .title .eng {
+	color: #222;
+	font-family:'Titillium Web', sans-serif;
+	font-size: 44px;
+	font-weight: bold;
+	transform: translateY(100%);
+}
+.about3_wrap .title .txt {
+	margin-top: 25px;
+	color: #888;
+	font-size: 18px;
+	line-height: 1.49;
+	transform: translateY(100%);
+	transition-delay: 0.35s;
+}
+.about3_wrap .about3_map {
+	margin-top: 70px;
+}
+.about3_wrap .about3_map iframe {
+	height: 540px;
+}
+.about3_wrap .about3_info dl {
+	display:inline-block;
+	margin-top: 70px;
+	width: 50%;
+	font-size: 14px;
+	vertical-align: top;
+}
+.about3_wrap .about3_info dt {
+	color: #222;
+	font-size: 15px;
+	font-weight: bold;
+}
+.about3_wrap .about3_info dt i {
+	margin-right: 10px;
+	color: #1d5799;
+	font-size: 18px;
+}
+.about3_wrap .about3_info dd {
+	margin-top:20px;
+	font-family: 나눔고딕, nanumGothic;
+	font-size: 14px;
+	line-height:1.96;
+	color: #444;
+}
+
+
+@media ( max-width: 1400px ) {
+	.about3_wrap {
+		max-width: calc(100% - 60px);
+	}
+	.about3_wrap .about3_map {
+		margin-top: 30px;
+	}
+	.about3_wrap .about3_info dl {
+		margin-top: 30px;
+	}
+	.about3_wrap .about3_info dd {
+		margin-top: 18px;
+	}
+}
+
+
+@media (max-width:1024px) {
+	.about3 {
+		padding: 40px 0;
+	}
+	.about3_wrap {
+		max-width: 1000px;
+	}
+	.about3_wrap .title {
+		margin-bottom: 30px;
+	}
+	.about3_wrap .title .eng {
+		font-size: 24px;
+	}
+	.about3_wrap .title .txt {
+		margin-top: 5px;
+		font-size: 14px;
+		line-height:1.71;
+	}
+	.about3_wrap .about3_map iframe {
+		height: 375px;
+	}
+	.about3_wrap .about3_info {
+		margin-top: 0;
+	}
+	.about3_wrap .about3_info {
+		padding: 0 15px;
+	}
+	.about3_wrap .about3_info dl {
+		display: block;
+		margin-top: 30px;
+		width: 100%;
+	}
+	.about3_wrap .about3_info dl dd {
+		margin-top: 8px;
+		line-height: 1.4;
+	}
+	.about3_wrap .about3_info dl dd p {
+		margin-bottom: 3px;
+	}
+}

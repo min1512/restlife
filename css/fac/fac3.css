@@ -1,0 +1,167 @@
+.fac3 {
+	padding: 140px 0;
+	overflow: hidden;
+}
+.fac3_wrap {
+	position: relative;
+	width: 100%;
+	max-width: 1400px;
+	margin: auto;
+	padding: 0 100px;
+	text-align: center;
+}
+.fac3_wrap .title {
+	margin-bottom: 60px;
+}
+.fac3_wrap .title .eng {
+	position: relative;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 24px;
+	letter-spacing: 0.3em;
+	color: #1d5799;
+	text-transform: uppercase;
+	transform: translateY(4vw);
+}
+.fac3_wrap .title .eng::after {
+	content: 'various facilities preview';
+}
+.fac3_wrap .title .txt {
+	margin-top: 10px;
+	font-size: 18px;
+	letter-spacing: 0.2em;
+	color: #777;
+	transform: translateY(70%);
+	transition-delay: 0.35s;
+}
+.fac3_wrap .title .txt::after {
+	content: '다양한 부대시설 미리보기';
+}
+.fac3_wrap .swiper-fac3 {
+	padding-bottom: 45px;
+}
+.swiper-fac3 .swiper-slide {
+	width: 480px;
+}
+.swiper-fac3 .swiper-slide .thumbnails {
+	position: relative;
+	height: 230px;
+	overflow: hidden;
+}
+.swiper-fac3 .swiper-slide  a .thumbnails .loader {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+	transform: scale(1);
+	transition: transform 0.5s;
+}
+.swiper-fac3 .swiper-slide  a:hover .thumbnails .loader {
+	transform: scale(1.1);
+}
+.swiper-fac3 .swiper-slide  a .name {
+	margin-top: 25px;
+	font-size: 20px;
+	color: #222;
+}
+
+.fac3_wrap .swiper-button-next,
+.fac3_wrap .swiper-button-prev {
+	width: 56px; height: 62px;
+	margin-top: -19px;
+	background-image: none;
+	line-height: 62px;
+	color: #a7a7a7;
+	text-align: center;
+	transition: opacity 0.5s, background 0.5s, color 0.5s;
+}
+.fac3_wrap .swiper-button-next {
+	right: 0;
+}
+.fac3_wrap .swiper-button-prev {
+	left: 0;
+}
+.fac3_wrap .swiper-button-next i ,
+.fac3_wrap .swiper-button-prev i {
+	font-size: 64px;
+}
+.fac3_wrap .swiper-pagination {
+	right: 0; left: 0;
+	margin: auto;
+}
+.fac3_wrap .swiper-pagination .swiper-pagination-bullet {
+	margin: 0 4px;
+	border-radius: 10px;
+	background: #ccc;
+	opacity: 1;
+	transition: width 0.35s;
+}
+.fac3_wrap .swiper-pagination .swiper-pagination-bullet-active {
+	width: 46px;
+	background: #1d5799;
+}
+
+
+
+@media ( max-width: 1024px ) {
+	.fac3 {
+		padding: 50px 0;
+	}
+	.fac3_wrap {
+		width: calc(100% - 15px);
+		margin-left: 15px;
+		padding: 0;
+		text-align: left;
+	}
+	.fac3_wrap .title {
+		margin-bottom: 25px;
+	}
+	.fac3_wrap .title .eng {
+		font-size: 20px;
+		line-height: 20px;
+		letter-spacing: 0;
+		transform: translate(4vw,0);
+	}
+	.fac3_wrap .title .eng::after {
+		content: 'facilities';
+	}
+	.fac3_wrap .title .txt {
+		margin-top: 5px;
+		font-size: 14px;
+		color: #444;
+		letter-spacing: 0;
+		transform: translate(4vw,0);
+	}
+	.fac3_wrap .title .txt::after {
+		content: '부연 펜션 내부에서 즐기는 다양한 부대시설';
+	}
+	.fac3_wrap .swiper-fac3 {
+		padding-bottom: 0;
+	}
+	.swiper-fac3 .swiper-slide {
+		width: 240px;
+		border: 1px solid #eaeaea;
+	}
+	.swiper-fac3 .swiper-slide .thumbnails {
+		height: 135px;
+	}
+	.swiper-fac3 .swiper-slide  a .name {
+		margin-top: 15px;
+		padding-bottom: 15px;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.swiper-fac3 .swiper-slide  a .info {
+		display: none;
+	}
+	.fac3_wrap .swiper-button-next,
+	.fac3_wrap .swiper-button-prev {
+		display: none;
+	}
+	.fac3_wrap .swiper-pagination {
+		display: none;
+	}
+	
+}
+

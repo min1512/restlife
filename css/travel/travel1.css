@@ -1,0 +1,123 @@
+.travel1 {
+	padding: 150px 0;
+	background: #f6f6f6;
+}
+.travel1 .title {
+	display: none;
+}
+.travel1_wrap {
+	position: relative;
+	width: 100%;
+	max-width: 1400px;
+	margin: auto;
+	text-align: center;
+}
+.travel1_wrap .ttl {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 30px;
+	padding-bottom: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #222;
+}
+.travel1_wrap .ttl::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	height: 1px;
+	background: #1d5799;
+}
+.travel1_wrap .content {
+	font-size: 14px;
+	color: #777;
+}
+.travel1_wrap .dis {
+	margin-top: 40px;
+	padding-top: 55px;
+	background: url(http://img.einet.kr/P202002026/responsive/travel/dis.png) top center no-repeat;
+	font-size: 15px;
+	color: #666;
+}
+.travel1_wrap .dis b {
+	color: #333;
+}
+.travel1_wrap .btn_wrap {
+	margin-top: 60px;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: bold;
+}
+.travel1_wrap .btn_wrap a {
+	position: relative;
+	margin: 0 15px;
+	padding-bottom: 3px;
+	color: #888;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: color 0.35s;
+}
+.travel1_wrap .btn_wrap a::after {
+	content: '';
+	position: absolute;
+	bottom: 0; right: 0; left: 0;
+	margin: auto;
+	width: 0; height: 1px;
+	background: #1d5799;
+	transition: width 0.35s;
+}
+.travel1_wrap .btn_wrap a:hover {
+	color: #1d5799;
+}
+.travel1_wrap .btn_wrap a:hover::after {
+	width: 100%;
+}
+
+
+
+
+@media ( max-width: 1420px ) {
+	.travel1_wrap {
+		max-width: calc(100% - 60px);
+	}
+}
+
+
+
+@media ( max-width: 1024px ) {
+	.travel1 {
+		padding: 35px 0 50px;
+		background: #f6f6f6;
+	}
+	.travel1 .title {
+		position: relative;
+		display: block;
+		padding: 35px 0;
+		text-align: center;
+	}
+	.travel1 .title .eng {
+		font-family: 'Titillium Web', sans-serif;
+		font-size: 40px;
+		font-weight: 600;
+		line-height: 25px;
+		color: #444;
+		text-transform: uppercase;
+		transform: translate(0,30%);
+	}
+	.travel1 .title .name {
+		margin-top: 16px;
+		font-size: 18px;
+		color: #666;
+		transform: translate(0,30%);
+		transition-delay: 0.4s;
+	}
+	.travel1_wrap {
+		max-width: calc(100% - 30px);
+	}
+	.travel1_wrap .ttl {
+		display: none;
+	}
+	.travel1_wrap .btn_wrap {
+		display: none;
+	}
+}

@@ -1,0 +1,22 @@
+.about2 {
+	height: 630px;
+	overflow: hidden;
+}
+.about2 .loader {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+}
+.about2 img {
+	position: absolute;
+	right: 60vw; bottom: 47%;
+	max-width: 100%;
+	z-index: 1;
+}
+
+
+@media ( max-width: 1024px ) {
+	.about2 {
+		display: none;
+	}
+}
