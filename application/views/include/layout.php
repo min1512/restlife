@@ -40,6 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="lsm/js/owl/owl.carousel.min.js"></script>
 	<script src="lsm/js/webfontloader.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<!--	구글 에드센스-->
+	<script data-ad-client="ca-pub-6721127615303797" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </head>
 <body>
