@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<li><a href="http://www.restlife.shop/Foods"><i class="fas fa-utensils">Foods</i></li>
 		<li><a href="http://www.restlife.shop/Photo"><i class="fa fa-camera">Photo</i></li>
 		<li><a href="http://www.restlife.shop/Cafe"><i class="fa fa-coffee">Cafe</i></li>
-		<li><a href="http://www.restlife.shop/Shopping"><i class="fa fa-coffee">Shopping</i></li>
+<!--		<li><a href="http://www.restlife.shop/Shopping"><i class="fa fa-coffee">Shopping</i></li>-->
 		<li><a href="http://www.restlife.shop/SignUp"><i class="fas fa-sign-in-alt">SignUp</i></li>
 		<li><a href="http://www.restlife.shop/Login"><i class="fas fa-sign-in-alt">LOGIN</i></li>
 	</ul>
