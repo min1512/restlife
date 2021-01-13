@@ -53,6 +53,33 @@
 				</div>
 			</div>
 		</div>
+		<div class="reply">
+
+			<div class="replys" style="border: 0.5px solid #d6d6d6">
+				<div id="form-commentInfo">
+					<div id="comment-count">댓글 <span id="count"><?= $replyCommentCount ?></span></div>
+					<input id="comment-input" placeholder="댓글을 입력해 주세요."> <button id="submit" onclick="reply_insert('<?= isset($session['session_id'])?$session['session_id']:"" ?>')">등록</button>
+				</div>
+				<div id=comments>
+					<?php if(!empty($replyComment)) {
+							foreach ($replyComment as $k => $v){
+								foreach ($v as $k2 => $v2) {
+									if ($k2 == 'user') $user = $v2;
+									if ($k2 == 'comment') $comment = $v2;
+									if ($k2 == 'REG_DT') $REG_DT = $v2;
+								}
+					?>
+								<div class="eachComment">
+									<div class="name"><?= isset($user)?$user:"" ?></div>
+									<div class="inputValue"><?= isset($comment)?$comment:"" ?></div>
+									<div class="time"><?= isset($REG_DT)?$REG_DT:"" ?></div>
+								</div>
+						<?php } ?>
+
+					<?php } ?>
+				</div>
+			</div>
+		</div>
 
 	</div>
 
@@ -182,5 +209,43 @@
 			})
 		}
 	}
+
+	function reply_insert(session)
+	{
+		if(session == ''){
+			alert('로그인 후 이용 부탁드립니다.');
+			location.href = 'http://www.restlife.shop/Login';
+		}else{
+			var commentInput = $('#comment-input').val();
+			if(commentInput == '') alert('글을 작성하세요.');
+			<?php
+			$url = $_SERVER['PHP_SELF'];
+			$url = explode('/',$url);
+			$dir = $url[3];
+			$index_map = $url[5];
+			?>
+			$.ajax({
+				url: 'http://www.restlife.shop/Update/ReplyInsert',
+				type: 'post',
+				data: { 'id' : session, 'index_map' : '<?= $index_map; ?>', 'commentInput' : commentInput  },
+				dataType: 'text',
+				success : function (result){
+					console.log(result);
+					if(result == 'sucess'){
+						window.location.reload();
+					}else{
+						alert('Database error');
+						return false;
+					}
+				},
+				error: function (result){
+					console.log(result);
+					alert('Database error');
+				}
+			})
+		}
+	}
+
+
 
 </script>
