@@ -84,6 +84,9 @@ class Foods extends CI_Controller
 		$data['session' ] = $this->sessions;
 		$likeButtonCount = $this->foods_m->likeButtonCount($index);
 		$data['likeButtonCount'] = count($likeButtonCount);
+		$replyComment    = $this->foods_m->replyComment($index);
+		$data['replyComment'     ] = $replyComment;
+		$data['replyCommentCount'] = count($replyComment);
 
 		$this->load->view('include/layout',$this->sessions);
 		$this->load->view('list',$data);

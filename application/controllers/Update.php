@@ -74,6 +74,28 @@ class Update extends CI_Controller
 		echo 'sucess';
 	}
 
+	public function ReplyInsert()
+	{
+		$data = array();
+		$user         = $_POST['id'];
+		$index_map    = $_POST['index_map'];
+		$commentInput = $_POST['commentInput'];
+		$use_yn       = 'Y';
+		$reg_dt       = date('Y-m-d H:i:s');
+		$upd_dt       = date('Y-m-d H:i:s');
+
+		$data['index_map'] = $index_map;
+		$data['user'     ] = $user;
+		$data['comment'  ] = $commentInput;
+		$data['USE_YN'   ] = $use_yn;
+		$data['REG_DT'   ] = $reg_dt;
+		$data['UPD_DT'   ] = $upd_dt;
+
+		$this->db->insert('reply',$data);
+
+		echo 'sucess';
+	}
+
 	public function upload()
 	{
 		// 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.

@@ -103,4 +103,24 @@ class Photo_m extends CI_Model
 
 		return $result->result_array();
 	}
+
+	public function replyComment($index)
+	{
+		$query = "
+			select
+			 	rp.user,
+			 	rp.comment,
+			 	rp.REG_DT     
+			from
+				reply rp
+			where
+				rp.index_map = '".$index."'
+				and
+				rp.use_yn = 'Y'  	
+		";
+
+		$result = $this->db->query($query);
+
+		return $result->result_array();
+	}
 }

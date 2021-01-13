@@ -53,6 +53,9 @@ class Cafe extends CI_Controller
 		$data['session' ] = $this->sessions;
 		$likeButtonCount = $this->cafe_m->likeButtonCount($index);
 		$data['likeButtonCount'] = count($likeButtonCount);
+		$replyComment    = $this->cafe_m->replyComment($index);
+		$data['replyComment'     ] = $replyComment;
+		$data['replyCommentCount'] = count($replyComment);
 
 		$this->load->view('include/layout',$this->sessions);
 		$this->load->view('list',$data);
