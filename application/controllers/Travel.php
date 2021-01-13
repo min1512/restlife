@@ -51,6 +51,9 @@ class Travel extends CI_Controller
 		$data['session' ] = $this->sessions;
 		$likeButtonCount = $this->travel_m->likeButtonCount($index);
 		$data['likeButtonCount'] = count($likeButtonCount);
+		$replyComment    = $this->travel_m->replyComment($index);
+		$data['replyComment'     ] = $replyComment;
+		$data['replyCommentCount'] = count($replyComment);
 
 		$this->load->view('include/layout',$this->sessions);
 		$this->load->view('list',$data);
