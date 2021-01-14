@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="main1_bottom_wrap">
 				<div class="main1_bottom">
-					<a href="http://min1512.cafe24.com/Travel">
+					<a href="http://www.restlife.shop/Travel">
 						<div class="icon"><img src="/lsm/img/travel/travel1.png" alt="" height="100px"></div>
 						<div class="con_ttl">Travel</div>
 						<div class="con_txt">
@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://min1512.cafe24.com/Foods">
+					<a href="http://www.restlife.shop/Foods">
 						<div class="icon"><img src="/lsm/img/food/food1.jpg" alt="" height="100px"></div>
 						<div class="con_ttl">Foods</div>
 						<div class="con_txt">여행의 묘미 맛집 찾기
@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://min1512.cafe24.com/Photo">
+					<a href="http://www.restlife.shop/Photo">
 						<div class="icon"><img src="/lsm/img/photo/photo1.jpg" alt="" height="100px"></div>
 						<div class="con_ttl">Photo</div>
 						<div class="con_txt">다양한 사진들이 준비
@@ -107,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://min1512.cafe24.com/Cafe">
+					<a href="http://www.restlife.shop/Cafe">
 						<div class="icon"><img src="/lsm/img/cafe/cafe1.png" alt="" height="100px"></div>
 						<div class="con_ttl">Cafe</div>
 						<div class="con_txt">분위기 좋고 힐링이 되는
