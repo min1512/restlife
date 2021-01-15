@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 
-		<div class="swiper-container" id="swiper_container">
+		<div class="swiper-container" id="contents_inner">
 			<div class="swiper-wrapper">
 				<?php foreach ($img_get as $k => $v) {
 					foreach ($v as $k2 => $v2) {
@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	</div>
 
-	<div class="contents_inner" id="contents_inner">
+	<div class="contents_inner" id="swiper_container">
 		<div class="weekely_best">
 			<h4 class="title_style">WEEKELY BEST</h4>
 			<div class="basic_goods_list">
