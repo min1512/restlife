@@ -49,7 +49,7 @@
 				</div>
 				<?= $img_get[0]['content'] ?>
 				<div>
-					<a class="btn_sub" href="#" id="likeButton" onclick="likeButton( '<?= isset($session['session_id'])?$session['session_id']:"" ?>' )">공감 버튼 <i class="far fa-grin-hearts"></i> <a class="btn_sub" href="#" id="likeButton"> <?= isset($likeButtonCount)?$likeButtonCount:0 ?> </a></a>
+					<a class="btn_sub" href="#" id="likeButton" onclick="likeButton( '<?= isset($session['session_id'])?$session['session_id']:"" ?>' )">공감 버튼 <i class="far fa-grin-hearts" id="likeButton"></i> <a class="btn_sub" href="#" id="likeButton"> <?= isset($likeButtonCount)?$likeButtonCount:0 ?> </a></a>
 				</div>
 			</div>
 		</div>
@@ -246,6 +246,29 @@
 		}
 	}
 
-
+	$(function (){
+		var session = '<?= isset($session['session_id'])?$session['session_id']:"" ?>';
+		$.ajax({
+			url: 'http://www.restlife.shop/Update/LikeButtonSelect',
+			type: 'post',
+			data: { 'id' : session, 'index_map' : '<?= $index_map; ?>' },
+			dataType: 'text',
+			success : function (result){
+				console.log(result);
+				if(result == 'sucess'){
+					console.log(result);
+					$('#likeButton').css({
+						"color" : "red"
+					})
+				}else{
+					console.log(result);
+				}
+			},
+			error: function (result){
+				console.log(result);
+				alert('Database error');
+			}
+		})
+	})
 
 </script>

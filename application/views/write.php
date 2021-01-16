@@ -77,11 +77,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<form id="EditorForm" name="EditorForm" enctype="multipart/form-data" method="post">
 					<div>
 						<a style="font-family: 'Lato', sans-serif; color: #0A246A; font-size: 15px;">제목 : &nbsp;&nbsp;</a>
-						<input type="text" id="title" placeholder="제목" name="title" size="40" />
+						<input type="text" id="title" placeholder="title" name="title" size="40" style="height: 25px;"/>
 					</div>
-					<div>
+					<div style="margin-top: 20px; margin-bottom: 20px;">
 						<a style="font-family: 'Lato', sans-serif; color: #0A246A; font-size: 15px;">비밀번호<a style="font-family: 'Lato', sans-serif; color: red; font-size: 15px;">(글 수정 할때 사용, 필수 아님)</a><a style="font-family: 'Lato', sans-serif; color: #0A246A; font-size: 15px;"> : &nbsp;&nbsp;</a></a>
-						<input type="password" id="password" placeholder="비밀번호" name="password" maxlength="10" />
+						<input type="password" id="password" placeholder="password" name="password" maxlength="10" style="height: 25px;" />
 					</div>
 					<div>
 						<textarea id="contents" placeholder="본문" name="contents"></textarea>

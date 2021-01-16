@@ -43,7 +43,7 @@ class Update extends CI_Controller
 
 		echo isset($result['index_map'])?$result['index_map']:"fail";
 	}
-
+	//좋아요 버튼 누르면 활성화 시키거나 비활성화 시키는거
 	public function LikeButton()
 	{
 		$user        = $_POST['id'];
@@ -72,6 +72,22 @@ class Update extends CI_Controller
 		}
 
 		echo 'sucess';
+	}
+	// 좋아요 버튼 눌렀는지 찾는거
+	public function LikeButtonSelect()
+	{
+		$user        = $_POST['id'];
+		$index_map = $_POST['index_map'];
+
+		$likeButton = $this->update_m->likeButton($user,$index_map);
+
+		if(!empty($likeButton)){
+			//좋아요 버튼 눌렀으면 sucess
+			echo 'sucess';
+		}else{
+			//좋아요 버튼 안 눌렀으면 fail
+			echo 'false';
+		}
 	}
 
 	public function ReplyInsert()
