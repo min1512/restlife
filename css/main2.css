@@ -138,13 +138,74 @@
 }
 
 .lists{
-	align-content: center;
-	padding: 0 500px 0 500px ;
+	border-bottom: 1px solid #e2e5e9;
+	box-shadow: 0 0.05em 0 rgba(0,0,0,0.03);
+	background-color: #fff;
+}
+
+.blogview_content{
+	padding: 0 20px 30px;
+	margin: 34px auto 0;
+	max-width: 800px;
+	font-size: 16px;
+	line-height: 27px;
+	color: #303030;
+	word-break: break-word;
 }
 
 .list .lists img{
 	width:500px !important;
 	height: 500px !important;
+}
+
+.blogview_info{
+	height: 37px;
+	border-top: 1px solid #9199a4;
+	border-bottom: 1px solid #ecf0f5;
+	margin: 29px 20px 0;
+}
+
+.blogview_info .txt_date{
+	font-size: 12px;
+	line-height: 38px;
+	color: #9199A4;
+}
+
+.blogview_info .sympathy_wrap{
+	height: auto;
+	padding: 0;
+	float: right;
+}
+
+.blogview_info .sympathy_wrap .info_sym{
+	padding: 10px 0;
+	margin-left: 14px;
+	line-height: 18px;
+	float: left;
+	font-size: 12px;
+	color: #9199a4;
+	vertical-align: top;
+}
+
+.blogview_info .info_sym .ico_comment {
+	width: 18px;
+	height: 16px;
+	margin: 1px 4px 0 0;
+	background-position: -40px -46px;
+}
+
+.blogview_info .info_sym .ico_heart {
+	width: 18px;
+	height: 15px;
+	margin: 1px 2px 0 0;
+	background-position: 0 -46px;
+}
+
+button {
+	border: 0 none;
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
 }
 
 .reply{
@@ -158,7 +219,7 @@
 
 .replys{
 	align-content: center;
-	padding: 0 500px 0 500px ;
+	padding: 0 20px 0 20px ;
 }
 
 #form-commentInfo{ width: 100%; }
@@ -173,6 +234,111 @@
 .eachComment .time{ font-size: 0.35em; color: #c1bcba; font-style: oblique; margin-top: 0.5em; margin-bottom: 0.5em; }
 .eachComment .voteDiv{ display: flex; justify-content: flex-end; }
 .eachComment .deleteComment{ background-color: red; color: aliceblue; }
+
+.ico_comm {
+	display: inline-block;
+	overflow: hidden;
+	background: url(//t1.daumcdn.net/tistory_admin/static/mobile/m320/ico_comm3.png) no-repeat 0 0;
+	text-indent: -9999px;
+	vertical-align: top;
+}
+
+#form-commentInfo .tit_comment {
+	margin-top: 3px;
+	padding-top: 36px;
+	border-top: 1px solid #e2e5e9;
+	box-shadow: 0 -0.05em 0 rgba(0,0,0,0.03);
+	font-weight: normal;
+	font-size: 15px;
+}
+
+#form-commentInfo .tit_comment .inner_comment {
+	display: block;
+	margin: 0 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #9199a4;
+}
+
+#form-commentInfo .tit_comment .ico_comment {
+	float: left;
+	width: 18px;
+	height: 16px;
+	margin: 3px 6px 0 0;
+	background-position: -40px -46px;
+}
+
+#form-commentInfo .num_comment {
+	font-size: 14px;
+	color: #EC5621;
+}
+
+
+
+
+
+.list_cmt {
+	margin: 0 20px;
+}
+.list_cmt .item_cmt {
+	position: relative;
+	padding: 19px 0 16px 40px;
+}
+.list_cmt li:first-child {
+	border-top: 0 none;
+}
+.list_cmt .item_cmt {
+	position: relative;
+	padding: 19px 0 16px 40px;
+}
+.list_cmt .thumb_img {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	background-position: -266px 0;
+}
+.list_cmt .thumb_img .img_thumg {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+}
+img {
+	vertical-align: top;
+}
+.list_cmt .cmt_info .info_append {
+	display: block;
+	overflow: hidden;
+	margin-right: 20px;
+	padding-top: 1px;
+	font-weight: normal;
+}
+.list_cmt .info_append .link_author {
+	overflow: hidden;
+	float: left;
+	max-width: 119px;
+	font-size: 13px;
+	color: #9199a4;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.list_cmt .info_append .txt_date {
+	float: left;
+	position: relative;
+	padding: 3px 0 0 14px;
+	font-size: 12px;
+	line-height: 13px;
+	color: #9199A4;
+}
+.list_cmt .cmt_info .txt_cmt {
+	display: block;
+	margin-top: 5px;
+	font-size: 14px;
+	line-height: 21px;
+	color: #404040;
+	word-break: break-word;
+}
 
 .swiper-container #submitButton{
 	margin: 30px 750px 91px 700px;
@@ -192,6 +358,9 @@
 	box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6), inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
+#change_text {
+	margin-top: 0px;
+}
 
 @media ( max-width: 768px ) {
 	.main2_wrap {
@@ -279,11 +448,6 @@
 			height: 100%;
 		}
 
-		.lists{
-			align-content: center;
-			padding: 0 75px 0 75px ;
-		}
-
 		.list .lists img{
 			width:250px !important;
 			height: 250px !important;
@@ -300,7 +464,7 @@
 
 		.replys{
 			align-content: center;
-			padding: 0 75px 0 75px ;
+			padding: 0 20px 0 10px;
 		}
 
 		#form-commentInfo{ width: 100%; }
@@ -308,7 +472,12 @@
 		#comment-input{ width: 100%; height: 3.3em; }
 		#submit{ background-color: rgb(0, 128,255); width: 6.5em; height: 3.3em; font-size: 10px; font-weight: bold; color: aliceblue; }
 		#voteUp, #voteDown{ width: 3.5em; height: 1.9em; background-color: aqua; }
-		#comments{ margin-top: 10px; }
+		#comments{
+			position: relative;
+			border-bottom: 1px solid #e2e5e9;
+			background-color: #fff;
+		}
+
 		.eachComment{ width :100%; margin: 10px; padding: 0.5em; border-bottom: 1px solid #c1bcba; }
 		.eachComment .name{ font-size: 0.7em; font-weight: bold; margin-bottom: 0.3em; display: flex; justify-content: space-between; }
 		.eachComment .inputValue{ font-size: 0.6em; font-style: italic; }

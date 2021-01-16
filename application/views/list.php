@@ -39,6 +39,23 @@
 		</div>
 		<div class="list">
 			<div class="lists" style="border: 0.5px solid #d6d6d6;">
+				<div class="blogview_info">
+					<time class="txt_date"><?= $img_get[0]['reg_date'] ?></time>
+					<span class="sympathy_wrap">
+							<a href="#comment" class="info_sym" >
+                                <span class="ico_comm ico_comment">댓글수</span><span class="count_comment"><?= $replyCommentCount ?></span>
+                            </a>
+							<span id="title_daumlike">
+							<span id="mobile-reaction">
+								<button class="info_sym uoc-icon" onclick="likeButton( '<?= isset($session['session_id'])?$session['session_id']:"" ?>' )">
+									<span class="ico_comm ico_heart">공감수</span>
+									<span class="uoc-like-count"><?= isset($likeButtonCount)?$likeButtonCount:0 ?></span>
+								</button>
+							</span>
+					</span>
+					</span>
+				</div>
+
 				<div class="sub_title">
 					<?php if($password == 'null' || empty($password)) {?>
 						<a class="btn_sub" id="change_text" onclick="ChangeList()">글 수정</a>
@@ -47,20 +64,29 @@
 						<input type="password" maxlength="10" name="change_text_pw_value" id="change_text_pw_value" placeholder="비밀번호를 입력하세요" />
 					<?php } ?>
 				</div>
-				<?= $img_get[0]['content'] ?>
-				<div>
-					<a class="btn_sub" href="#" id="likeButton" onclick="likeButton( '<?= isset($session['session_id'])?$session['session_id']:"" ?>' )">공감 버튼 <i class="far fa-grin-hearts" id="likeButton"></i> <a class="btn_sub" href="#" id="likeButton"> <?= isset($likeButtonCount)?$likeButtonCount:0 ?> </a></a>
+
+				<div class="blogview_content">
+					<?= $img_get[0]['content'] ?>
 				</div>
 			</div>
 		</div>
+<!--		댓글-->
 		<div class="reply">
-
 			<div class="replys" style="border: 0.5px solid #d6d6d6">
 				<div id="form-commentInfo">
-					<div id="comment-count">댓글 <span id="count"><?= $replyCommentCount ?></span></div>
+
+					<h3 class="tit_comment">
+						<span class="inner_comment">
+							<span class="img_comm ico_comment ico_comm"></span>
+							댓글
+							<span class="num_comment"><?= $replyCommentCount ?></span>
+						</span>
+					</h3>
+
 					<input id="comment-input" placeholder="댓글을 입력해 주세요."> <button id="submit" onclick="reply_insert('<?= isset($session['session_id'])?$session['session_id']:"" ?>')">등록</button>
 				</div>
 				<div id=comments>
+					<ul class="list_cmt">
 					<?php if(!empty($replyComment)) {
 							foreach ($replyComment as $k => $v){
 								foreach ($v as $k2 => $v2) {
@@ -69,13 +95,25 @@
 									if ($k2 == 'REG_DT') $REG_DT = $v2;
 								}
 					?>
-								<div class="eachComment">
-									<div class="name"><?= isset($user)?$user:"" ?></div>
-									<div class="inputValue"><?= isset($comment)?$comment:"" ?></div>
-									<div class="time"><?= isset($REG_DT)?$REG_DT:"" ?></div>
-								</div>
-						<?php } ?>
+									<li>
+										<div class="item_cmt reply_cmt">
+											<a class="thumb_img">
+												<img src="https://img1.daumcdn.net/thumb/C30x30/?scode=mtistory2&amp;fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_06.png" class="img_thumg" alt="프로필 이미지">
+											</a>
+											<div class="cmt_info">
+												<strong class="info_append">
+													<a class="link_author"><?= isset($user)?$user:"" ?></a>
+													<span class="txt_date">
+														<span><?= isset($REG_DT)?$REG_DT:"" ?></span>
+													</span>
+												</strong>
+												<span class="txt_cmt"><?= isset($comment)?$comment:"" ?></span>
+											</div>
+										</div>
+									</li>
 
+						<?php } ?>
+					</ul>
 					<?php } ?>
 				</div>
 			</div>
@@ -217,7 +255,10 @@
 			location.href = 'http://www.restlife.shop/Login';
 		}else{
 			var commentInput = $('#comment-input').val();
-			if(commentInput == '') alert('글을 작성하세요.');
+			if(commentInput == ''){
+				alert('글을 작성하세요.');
+				return false;
+			}
 			<?php
 			$url = $_SERVER['PHP_SELF'];
 			$url = explode('/',$url);
@@ -257,8 +298,8 @@
 				console.log(result);
 				if(result == 'sucess'){
 					console.log(result);
-					$('#likeButton').css({
-						"color" : "red"
+					$('.ico_heart').css({
+						"background-position" : "-20px -46px"
 					})
 				}else{
 					console.log(result);
