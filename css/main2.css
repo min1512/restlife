@@ -154,8 +154,8 @@
 }
 
 .list .lists img{
-	width:500px !important;
-	height: 500px !important;
+	width:  800px !important;
+	height: 650px !important;
 }
 
 .blogview_info{
@@ -449,7 +449,7 @@ img {
 		}
 
 		.list .lists img{
-			width:250px !important;
+			width: 320px !important;
 			height: 250px !important;
 		}
 
