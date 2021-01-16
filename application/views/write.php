@@ -86,8 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div>
 						<textarea id="contents" placeholder="본문" name="contents"></textarea>
 					</div>
-					<div style="margin: auto">
-						<input type="button" value="전송" onclick="FormSubmit()">
+					<div id="submitButton">
+						<input type="button" id="submitButtons" value="등록" onclick="FormSubmit()">
 					</div>
 				</form>
 			</div>
