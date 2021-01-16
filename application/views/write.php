@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="sub_title">
 			<div class="eng TRAN">VIEWS</div>
 			<div class="txt TRAN">남들과 차원이 다르고 <span>효율적이고 가치있는 휴식을 취하세요.</span></div>
-			<a class="btn_sub" href="http://min1512.cafe24.com/Travel/write">글쓰기 <i class="fas fa-caret-right"></i></a>
+			<a class="btn_sub" href="#">글쓰기 <i class="fas fa-caret-right"></i></a>
 		</div>
 		<div class="swiper-container">
 			<div>
