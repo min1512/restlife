@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									?>
 									<li class="goods_item">
 										<div class="img">
-											<a href="./Foods/lists/<?= $img_get[$k]['index'] ?>" class="img_link">
+											<a href="./Cafe/lists/<?= $img_get[$k]['index'] ?>" class="img_link">
 												<?php if(!empty($img_get[$k]['jpg_name'])) { ?>
 													<img src="lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>" alt>
 												<?php }else if(!empty($img_get[$k]['jpg_src'])){ ?>
