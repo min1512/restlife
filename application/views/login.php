@@ -87,6 +87,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</div>
 				<div id="btn_area">
 					<input type="button" value="LOGIN" id="styled" onclick="checkLoginForm();" />
+					<?php
+					// 네이버 로그인 접근토큰 요청 예제
+					$client_id = "DJm5Va3pFcDNfVgSYvuC";
+					$redirectURI = urlencode("http://www.restlife.shop/Login/naverLogin");
+					$state = "RAMDOM_STATE";
+					$apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=".$client_id."&redirect_uri=".$redirectURI."&state=".$state;
+					?>
+					<a href="<?php echo $apiURL ?>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
 				</div>
 			</form>
 		</div>
