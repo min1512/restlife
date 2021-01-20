@@ -23,8 +23,12 @@ class Login extends CI_Controller
 
 	public function index()
 	{
+		$data = array();
+		$prevPage = $_SERVER['HTTP_REFERER'];
+		$data['sessions'] = $this->sessions;
+		$data['prevPage'] = $prevPage;
 		$this->load->view('include/layout',$this->sessions);
-		$this->load->view('login',$this->sessions);
+		$this->load->view('login',$data);
 		$this->load->view('include/footer');
 	}
 

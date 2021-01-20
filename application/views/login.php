@@ -124,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				success  : function (result){
 					if(result == 'sucess'){
 						alert('반갑습니다.');
-						location.href = 'http://www.restlife.shop/';
+						location.href = '<?= $prevPage; ?>';
 					}else if(result == 'fail'){
 						alert('로그인 실패했습니다. 아이디 혹은 비밀번호 확인해주세요.');
 						location.href = 'http://www.restlife.shop/Login';
