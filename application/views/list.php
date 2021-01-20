@@ -42,7 +42,7 @@
 				<div class="blogview_info">
 					<time class="txt_date"><?= $img_get[0]['reg_date'] ?></time>
 					<span class="sympathy_wrap">
-							<a href="#comment" class="info_sym" >
+							<a href="#comment" class="info_sym" id="moveLayer">
                                 <span class="ico_comm ico_comment">댓글수</span><span class="count_comment"><?= $replyCommentCount ?></span>
                             </a>
 							<span id="title_daumlike">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 <!--		댓글-->
-		<div class="reply">
+		<div class="reply" id="reply">
 			<div class="replys" style="border: 0.5px solid #d6d6d6">
 				<div id="form-commentInfo">
 
@@ -311,5 +311,14 @@
 			}
 		})
 	})
+
+	//댓글 이미지 클릭시 페이지 아래로 이동(댓글 쓰는곳으로) => 2021-01-20 추가
+	$(function (){
+		$("#moveLayer").on("click",function (event){
+			//reply 객체를 얻어온다.
+			var offset = $('#reply').offset();
+			$('html, body').animate({scrollTop:offset.top},400);
+		});
+	});
 
 </script>
