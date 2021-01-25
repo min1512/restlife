@@ -255,7 +255,6 @@
 			location.href = 'http://www.restlife.shop/Login';
 		}else{
 			var commentInput = $('#comment-input').val();
-			commentInput = XSSCheck(commentInput,'');
 			if(commentInput == ''){
 				alert('글을 작성하세요.');
 				return false;

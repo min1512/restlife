@@ -14,6 +14,7 @@ class Update extends CI_Controller
 		$this->load->database();
 		$this->load->model('update_m');
 		$this->load->library('session');
+		$this->load->helper('security');
 
 	}
 
@@ -101,11 +102,15 @@ class Update extends CI_Controller
 		$upd_dt       = date('Y-m-d H:i:s');
 
 		$data['index_map'] = $index_map;
-		$data['user'     ] = $user;
-		$data['comment'  ] = $commentInput;
+		$data['user'     ] = $this->security->xss_clean($user);
+		$data['comment'  ] = $this->security->xss_clean($commentInput);
 		$data['USE_YN'   ] = $use_yn;
 		$data['REG_DT'   ] = $reg_dt;
 		$data['UPD_DT'   ] = $upd_dt;
+
+		if(empty($data['user'])) return false;
+		if(empty($data['comment'])) return false;
+		if(empty($data['index_map'])) return false;
 
 		$this->db->insert('reply',$data);
 
