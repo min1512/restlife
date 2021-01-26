@@ -15,6 +15,7 @@ class Foods extends CI_Controller
 		$this->load->database();
 		$this->load->model('foods_m');
 		$this->load->library('session');
+		$this->load->helper('security');
 		$this->sessions = array();
 		$this->sessions['session_id'] = $this->session->id;
 		$this->sessions['session_name'] = $this->session->name;
@@ -217,10 +218,10 @@ class Foods extends CI_Controller
 		$update   = isset($_POST['update'])?$_POST['update'  ]:"";
 		if($update != 'update'){
 			//insert 하는 부분
-			$title    = $_POST['title'   ];
-			$content  = $_POST['contents'];
-			$password = $_POST['password'];
-			$user     = isset($_POST['user'])?$_POST['user']:"";
+			$title    = $this->security->xss_clean($_POST['title']);
+			$content  = $this->security->xss_clean($_POST['contents']);
+			$password = $this->security->xss_clean($_POST['password']);
+			$user     = isset($_POST['user'])?$this->security->xss_clean($_POST['user']):"";
 
 			$src = explode("src",$content);
 			if(!empty($src[1])){
@@ -259,11 +260,11 @@ class Foods extends CI_Controller
 			$index_map = explode('/',$index_map);
 			$index_map = $index_map[5];
 
-			$title     = $_POST['title'   ];
-			$content   = $_POST['contents'];
-			$password  = $_POST['password'];
+			$title     = $this->security->xss_clean($_POST['title']);
+			$content   = $this->security->xss_clean($_POST['contents']);
+			$password  = $this->security->xss_clean($_POST['password']);
 			$use_yn    = isset($_POST['use_yn'])?$_POST['use_yn']:"Y";
-			$user      = isset($_POST['user'])?$_POST['user']:"";
+			$user      = isset($_POST['user'])?$this->security->xss_clean($_POST['user']):"";
 
 			$src = explode("src",$content);
 			if(!empty($src[1])){
