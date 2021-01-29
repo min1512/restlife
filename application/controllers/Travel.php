@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * Class Travel
  * @property travel_m $travel_m
- *
+ * Created by PhpStorm.
+ * User: 이상민
+ * Date: 2020-12-04
  */
 class Travel extends CI_Controller
 {
@@ -24,14 +26,149 @@ class Travel extends CI_Controller
 
 	public function index()
 	{
+	    //환경 체크
+        $mAgent = array("iPhone","iPod","Android","Blackberry", "Opera Mini", "Windows ce", "Nokia", "sony" );
+        $chkMobile = false;
+        for($i=0; $i<sizeof($mAgent); $i++){
+            if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] ))
+            {
+                $chkMobile = true;
+                break;
+            }
+        }
 
-		$data = array();
-		$img_get = $this->travel_m->img_get(null);
-		$data['img_get'] = $img_get;
-		$this->load->view('include/layout',$this->sessions);
-		$this->load->view('travel',$data);
-		$this->load->view('include/footer');
+        if($chkMobile){
+            //모바일
+            $get = $this->input->get();
+
+            $data = array();
+            $countAll = $this->travel_m->img_get(null);
+
+            $rdoLimitNumRows = 4;//한 페이지에 표시할 양
+            $totalCnt = sizeof($countAll);//총 게시물
+            $totalPage = ceil($totalCnt/$rdoLimitNumRows);//총페이지수
+            $page = isset($get['per_page'])?($get['per_page']/4)+1:1;
+
+            $startLimit = $page;
+            if( $startLimit < 1 ) $startLimit = 1;
+            $startLimit = ($startLimit -1 ) * $rdoLimitNumRows;
+        }else{
+            //PC
+            $get = $this->input->get();
+
+            $data = array();
+            $countAll = $this->travel_m->img_get(null);
+
+            $rdoLimitNumRows = 8;//한 페이지에 표시할 양
+            $totalCnt = sizeof($countAll);//총 게시물
+            $totalPage = ceil($totalCnt/$rdoLimitNumRows);//총페이지수
+            $page = isset($get['per_page'])?($get['per_page']/8)+1:1;
+
+            $startLimit = $page;
+            if( $startLimit < 1 ) $startLimit = 1;
+            $startLimit = ($startLimit -1 ) * $rdoLimitNumRows;
+        }
+
+        $param = array();
+        $param['startLimit'] = $startLimit;
+        $param['rdoLimitNumRows'] = $rdoLimitNumRows;
+
+        $params = array();
+        $params['per_page'] = $rdoLimitNumRows;
+
+        $this->load->library('pagination');
+        $config['base_url'] = 'http://www.restlife.shop/Travel';
+        $config['uri_segment'] = 4;
+        $config['total_rows'] = $totalCnt;//총 게시물
+        $config['per_page'] = $rdoLimitNumRows;
+        $config['num_links'		] = '5';
+        //$config['suffix'		] = '?'.http_build_query($params, '&');
+        $config['total_pages'] = $totalPage;//총페이지수
+        //$config['page_query_string'] =true;
+        $this->pagination->initialize($config);//페이지네이션 초기화
+        $data['pagination']=$this->pagination->create_links();//페이징 링크를 생성하여 view에서 사용할 변수에 할당
+
+        $img_get = $this->travel_m->img_get_detail_list(null,$param);
+        $data['img_get'] = $img_get;
+
+        $this->load->view('include/layout',$this->sessions);
+        $this->load->view('travel',$data);
+        $this->load->view('include/footer');
 	}
+
+	public function listAll()
+    {
+        //환경 체크
+        $mAgent = array("iPhone","iPod","Android","Blackberry", "Opera Mini", "Windows ce", "Nokia", "sony" );
+        $chkMobile = false;
+        for($i=0; $i<sizeof($mAgent); $i++){
+            if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] ))
+            {
+                $chkMobile = true;
+                break;
+            }
+        }
+
+        if($chkMobile){
+            //모바일
+            $get = $this->input->get();
+            $get['per_page'] = $this->uri->segment(3);
+
+            $data = array();
+            $countAll = $this->travel_m->img_get(null);
+
+            $rdoLimitNumRows = 4;//한 페이지에 표시할 양
+            $totalCnt = sizeof($countAll);//총 게시물
+            $totalPage = ceil($totalCnt/$rdoLimitNumRows);//총페이지수
+            $page = isset($get['per_page'])?$get['per_page']:1;
+
+            $startLimit = $page;
+            if( $startLimit < 1 ) $startLimit = 1;
+            $startLimit = ($startLimit -1 ) * $rdoLimitNumRows;
+        }else{
+            //PC
+            $get = $this->input->get();
+            $get['per_page'] = $this->uri->segment(3);
+
+            $data = array();
+            $countAll = $this->travel_m->img_get(null);
+
+            $rdoLimitNumRows = 8;//한 페이지에 표시할 양
+            $totalCnt = sizeof($countAll);//총 게시물
+            $totalPage = ceil($totalCnt/$rdoLimitNumRows);//총페이지수
+            $page = isset($get['per_page'])?$get['per_page']:1;
+
+            $startLimit = $page;
+            if( $startLimit < 1 ) $startLimit = 1;
+            $startLimit = ($startLimit -1 ) * $rdoLimitNumRows;
+        }
+
+        $param = array();
+        $param['startLimit'] = $startLimit;
+        $param['rdoLimitNumRows'] = $rdoLimitNumRows;
+
+        $params = array();
+        $params['per_page'] = $rdoLimitNumRows;
+
+        $this->load->library('pagination');
+        $config['base_url'] = 'http://www.restlife.shop/Travel/listAll';
+        $config['uri_segment'] = 4;
+        $config['total_rows'] = $totalCnt;//총 게시물
+        $config['per_page'] = $rdoLimitNumRows;
+        $config['num_links'		] = '5';
+        //$config['suffix'		] = '?'.http_build_query($params, '&');
+        $config['total_pages'] = $totalPage;//총페이지수
+        //$config['page_query_string'] =true;
+        $this->pagination->initialize($config);//페이지네이션 초기화
+        $data['pagination']=$this->pagination->create_links();//페이징 링크를 생성하여 view에서 사용할 변수에 할당
+
+        $img_get = $this->travel_m->img_get_detail_list(null,$param);
+        $data['img_get'] = $img_get;
+
+        $this->load->view('include/layout',$this->sessions);
+        $this->load->view('travel',$data);
+        $this->load->view('include/footer');
+    }
 
 	public function write()
 	{
@@ -222,7 +359,7 @@ class Travel extends CI_Controller
 			$data['index_map'] =isset($index['index'])?$index['index']:$result;
 			$this->db->insert('travel',$data);
 
-			echo "<script>location.href='http://www.restlife.shop/Travel'</script>";
+			echo "<script>location.href='http://www.restlife.shop/Travel/listAll'</script>";
 		}else if($update == 'update'){
 			//update 하는 부분
 			$index_map = $_POST['index_map'];
@@ -271,7 +408,7 @@ class Travel extends CI_Controller
 			);
 			$this->db->update('travel',$data,$where);
 
-			echo "<script>location.href='http://www.restlife.shop/Travel'</script>";
+			echo "<script>location.href='http://www.restlife.shop/Travel/listAll'</script>";
 		}
 
 	}

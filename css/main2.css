@@ -699,9 +699,122 @@ li{
 	background-repeat: no-repeat;
 }
 
+.pageDiv{
+	text-align: center;
+	margin: 0 0 .9375rem;
+	font-family: 'notosanscjkkr-Regular', 'Malgun Gothic', Dotum, 돋움, 'Apple SD Gothic Neo', Helvetica, AppleGothic, Sans-serif;
+	color: #282828;
+	font-weight: 400;
+	line-height: 1;
+}
+
+.page{
+	text-align: center;
+	margin: 0 0 .9375rem;
+}
+
+.page-num-list{
+	display: block;
+	text-align: center;
+}
+
+.page-num-item{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.page-num-list
+.active .page-num-link{
+	border: 1px solid #282828;
+	color: #000;
+}
+
+.page-num-list
+.page-num-link{
+	position: relative;
+	font-size: 0.6875rem;
+}
+
+a:hover{
+	color: #999;
+	text-decoration: none;
+}
+
+.page-num-link{
+	display: block;
+	width: 1.4375rem;
+	height: 1.4375rem;
+	border: 1px solid #ebebeb;
+	text-align: center;
+	line-height: 1.5rem;
+	color: #666;
+}
+
+.page-num-item +
+.page-num-item{
+	margin-left: 0.25rem;
+}
+
+.page-num-left
+.page-num-link{
+	background: #ebebeb;
+}
+
+.page-num-left
+.page-num-link:after{
+	display: block;
+	position: absolute;
+	top: 40%;
+	right: 25%;
+	content: "";
+	width: 5px;
+	height: 5px;
+	border-width: 1px 1px 0 0;
+	border-style: solid;
+	border-color: #666;
+	-webkit-transform: rotate(
+			45deg
+	);
+	transform: rotate(
+			225deg
+	);
+}
+
+.page-num-right
+.page-num-link{
+	background: #ebebeb;
+}
+
+.page-num-right
+.page-num-link:after{
+	display: block;
+	position: absolute;
+	top: 40%;
+	right: 40%;
+	content: "";
+	width: 5px;
+	height: 5px;
+	border-width: 1px 1px 0 0;
+	border-style: solid;
+	border-color: #666;
+	-webkit-transform: rotate(
+			45deg
+	);
+	transform: rotate(
+			45deg
+	);
+}
+
+/*
+.pageDiv a{
+	color: #999999;
+}
+*/
+
+
 @media ( max-width: 450px ) {
 	.contents_inner {
-		width:372px;
+		width:auto;
 		padding: 150px 0 110px 0;
 	}
 
@@ -723,7 +836,7 @@ li{
 	.goods_item{
 		margin: 20px!important;
 		float: left;
-		width: 260px;
+		width: auto;
 		box-sizing: border-box;
 		position: relative;
 	}
@@ -733,8 +846,14 @@ li{
 		overflow: hidden;
 		position: relative;
 		box-sizing: border-box;
-		width: 237px;
+		width: auto;
 		height: 240px;
+	}
+
+	.img img{
+		min-width: 260px;
+		height: 237px;
+		display: block;
 	}
 	.goods_item_link{
 		margin-bottom: 0.0625rem;
