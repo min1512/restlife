@@ -811,6 +811,10 @@ a:hover{
 }
 */
 
+#btn img{
+	width: 30px;
+	height: 35px;
+}
 
 @media ( max-width: 450px ) {
 	.contents_inner {
