@@ -44,6 +44,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			});
 
 		});
+        $(function () {
+            <?php
+            $chkUrl = $_SERVER['REQUEST_URI'];
+            $chkUrl = explode('/',$chkUrl);
+            $param = isset($chkUrl[3])?$chkUrl[3]:1;
+            ?>
+            var param = <?= $param; ?>;
+            $('.page-num-item').each(function (index) {
+                $(this).attr('page-num-item-index',index);
+                var indexs = $(this).attr('page-num-item-index');
+                if(param == (parseInt(indexs)+1) ){
+                    $('.page-num-item[page-num-item-index='+indexs+']').addClass('active');
+                    $('.page-num-item[page-num-item-index!='+indexs+']').removeClass('active');
+                }
+            });
+            $('.page-num-link').each(function (index) {
+                $(this).attr('page-num-link-index',index);
+                var indexs = $(this).attr('page-num-link-index');
+                if(parseInt(indexs)==0){
+                    $('.page-num-link[page-num-link-index='+indexs+']').prop("href","http://www.restlife.shop/Cafe/listAll/1");
+                }
+            });
+        });
 	</script>
 
 </head>
@@ -54,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!-- main2 -->
 	<div class="cpage main2" id="main2">
-		<div class="loader tImg" style="background-image: url(lsm/img/travel/airplane.jpg);"></div>
+		<div class="loader tImg" style="background-image: url('http://www.restlife.shop/lsm/img/travel/airplane.jpg');"></div>
 		<div class="sub_title">
 			<div class="eng TRAN">VIEWS</div>
 			<div class="txt TRAN">남들과 차원이 다르고 <span>효율적이고 가치있는 휴식을 취하세요.</span></div>
@@ -73,9 +96,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							if($v2=='cafe'){
 								?>
 								<div class="swiper-slide">
-									<a href="./Cafe/lists/<?= $img_get[$k]['index'] ?>"><img width="300px;" height="500px;" src="lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>"></a>
+									<a href="http://www.restlife.shop/Cafe/lists/<?= $img_get[$k]['index'] ?>"><img width="300px;" height="500px;" src="http://www.restlife.shop/lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>"></a>
 								</div>
 								<?php
+                                }else if($img_get[$k]['jpg_src']){
+                                ?>
+                                <div class="swiper-slide">
+                                    <a href="http://www.restlife.shop/Cafe/lists/<?= $img_get[$k]['index'] ?>"><img width="300px;" height="500px;" src="<?=$img_get[$k]['jpg_src']?>"></a>
+                                </div>
+                                <?php
 							}
 						}
 					}
@@ -93,6 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 	</div>
+    <?php if(!empty($img_get)) { ?>
 	<div class="contents_inner" id="swiper_container">
 		<div class="weekely_best">
 			<h4 class="title_style">WEEKELY BEST</h4>
@@ -105,9 +135,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									?>
 									<li class="goods_item">
 										<div class="img">
-											<a href="./Cafe/lists/<?= $img_get[$k]['index'] ?>" class="img_link">
+											<a href="http://www.restlife.shop/Cafe/lists/<?= $img_get[$k]['index'] ?>" class="img_link">
 												<?php if(!empty($img_get[$k]['jpg_name'])) { ?>
-													<img src="lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>" alt>
+													<img src="http://www.restlife.shop/lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>" alt>
 												<?php }else if(!empty($img_get[$k]['jpg_src'])){ ?>
 													<img src="<?=$img_get[$k]['jpg_src']?>">
 												<?php }else{ ?>
@@ -142,7 +172,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</ul>
 			</div>
 		</div>
+        <?=$pagination; ?>
 	</div>
+    <?php }else{ ?>
+        <div style="text-align: center;">
+            <strong>*조회되는 정보가 없습니다.</strong>
+            <br><br><br><br><br>
+        </div>
+    <?php } ?>
 
 	<script>
 		$(document).ready(function (){

@@ -811,7 +811,7 @@ a:hover{
 }
 */
 
-#btn img{
+.kakaoBtn img{
 	width: 30px;
 	height: 35px;
 }
@@ -861,7 +861,7 @@ a:hover{
 	}
 	.goods_item_link{
 		margin-bottom: 0.0625rem;
-		height: 10.0625rem;
+		/*height: 10.0625rem;*/
 		position: relative;
 	}
 	.brand{
