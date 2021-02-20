@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <?php
-	if(!empty($session_id)){
+	if(!empty($sessions['session_id'])){
 		echo "<script>location.href='http://www.restlife.shop/'</script>";
 	}
 ?>
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<label for="PW">비밀번호</label>
 					</h3>
 					<span class="form box">
-						<input type="password" name="PW" id="PW" class="form txt" placeholder="비밀번호" maxlength="15" />
+						<input type="password" name="PW" id="PW" class="form txt" placeholder="비밀번호" maxlength="15" onkeydown="onKeyDown()" />
 					</span>
 				</div>
 				<div id="btn_area">
@@ -102,6 +102,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 <script>
+
+	function onKeyDown()
+	{
+		if(event.keyCode == 13)
+		{
+			checkLoginForm();
+		}
+	}
+
 	function checkLoginForm(){
 		var id       = $('#ID').val();
 		var pw       = $('#PW').val();

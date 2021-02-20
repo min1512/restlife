@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 
 	</div>
-
+	<?php if(!empty($img_get)) { ?>
 	<div class="contents_inner" id="swiper_container">
 		<div class="weekely_best">
 			<h4 class="title_style">WEEKELY BEST</h4>
@@ -182,6 +182,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<?=$pagination; ?>
 	</div>
+	<?php }else{ ?>
+		<div style="text-align: center;">
+			<strong>*조회되는 정보가 없습니다.</strong>
+			<br><br><br><br><br>
+		</div>
+	<?php } ?>
 	<!-- Kakao API -->
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>

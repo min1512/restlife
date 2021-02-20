@@ -91,7 +91,10 @@ class Travel extends CI_Controller
         $img_get = $this->travel_m->img_get_detail_list(null,$param);
         $data['img_get'] = $img_get;
 
-        $this->load->view('include/layout',$this->sessions);
+        $layout = array();
+        $layout['sessions'] = $this->sessions;
+
+        $this->load->view('include/layout',$layout);
         $this->load->view('travel',$data);
         $this->load->view('include/footer');
 	}
@@ -165,14 +168,20 @@ class Travel extends CI_Controller
         $img_get = $this->travel_m->img_get_detail_list(null,$param);
         $data['img_get'] = $img_get;
 
-        $this->load->view('include/layout',$this->sessions);
+        $layout = array();
+        $layout['sessions'] = $this->sessions;
+
+        $this->load->view('include/layout',$layout);
         $this->load->view('travel',$data);
         $this->load->view('include/footer');
     }
 
 	public function write()
 	{
-		$this->load->view('include/layout',$this->sessions);
+        $layout = array();
+        $layout['sessions'] = $this->sessions;
+
+		$this->load->view('include/layout',$layout);
 		$this->load->view('write');
 		$this->load->view('include/footer');
 	}
@@ -193,7 +202,21 @@ class Travel extends CI_Controller
 		$data['replyComment'     ] = $replyComment;
 		$data['replyCommentCount'] = count($replyComment);
 
-		$this->load->view('include/layout',$this->sessions);
+		//관련 카테고리 전체 글 가져 오기(2021-02-05 추가)
+		$img_get_all = $this->travel_m->img_get(null);
+		$data['img_get_all'] = $img_get_all;
+
+        $layout = array();
+        $layout['sessions'] = $this->sessions;
+        if(!empty($img_get[0]['jpg_name'])){
+            $tempJpgSrc = 'www.restlife.shop/lsm/img/travel/'.$img_get[0]['jpg_name'];
+        }else{
+            $tempJpgSrc = $img_get[0]['jpg_src'];
+        }
+
+        $layout['jpg_src'] = $tempJpgSrc;
+
+		$this->load->view('include/layout',$layout);
 		$this->load->view('list',$data);
 		$this->load->view('include/footer');
 	}
@@ -220,7 +243,10 @@ class Travel extends CI_Controller
 				$data['img_get' ] = $img_get;
 				$data['password'] = isset($img_get[0]['password'])?$img_get[0]['password']:"null";
 
-				$this->load->view('include/layout',$this->sessions);
+                $layout = array();
+                $layout['sessions'] = $this->sessions;
+
+				$this->load->view('include/layout',$layout);
 				$this->load->view('update',$data);
 				$this->load->view('include/footer');
 			}else{
@@ -235,7 +261,10 @@ class Travel extends CI_Controller
 			$data['img_get' ] = $img_get;
 			$data['password'] = isset($img_get[0]['password'])?$img_get[0]['password']:"null";
 
-			$this->load->view('include/layout',$this->sessions);
+            $layout = array();
+            $layout['sessions'] = $this->sessions;
+
+			$this->load->view('include/layout',$layout);
 			$this->load->view('update',$data);
 			$this->load->view('include/footer');
 		}
@@ -264,9 +293,16 @@ class Travel extends CI_Controller
 		//$funcNum = $_GET['CKEditorFuncNum'] ;
 		$url = '';
 		$message='';
+		//$allowed_ext = array('jpg','jpeg','png','gif');
 
 		if(isset($_FILES['upload'])){
 			$name = $_FILES['upload']['name'];
+
+			//$checkExt = array_pop(explode('.',$name));
+			//확장자 확인
+            /*if(!in_array($checkExt,$allowed_ext)){
+                $message="허용되지 않는 확장자입니다.";
+            }*/
 
 			$data = array();
 			$data['idx'] = 6;
@@ -277,6 +313,61 @@ class Travel extends CI_Controller
 
 			//$upload = $this->travel_m->upload('','6','travel',$name);
 			move_uploaded_file($_FILES["upload"]["tmp_name"],$uploadfullPath.$name);
+
+			//업로드된 이미지파일 정보를 가져 옵니다.
+			$file = getimagesize($uploadfullPath.$name);
+			//저용량 jpg 파일을 생성합니다.
+			$quality = 50;
+			if($file['mime'] == 'image/png'){
+				$image = imagecreatefrompng($uploadfullPath.$name);
+			}else if($file['mime'] == 'image/gif'){
+				$image = imagecreatefrompng($uploadfullPath.$name);
+			}else if($file['mime'] == 'image/jpeg'){
+				$image = imagecreatefromjpeg($uploadfullPath.$name);
+
+				$image = imagecreatefromjpeg($uploadfullPath.$name);
+
+				$exif = exif_read_data($uploadfullPath.$name);
+
+				if(!empty($exif['Orientation']))
+
+				{
+
+					switch($exif['Orientation'])
+
+					{
+
+						case 8:
+
+							$image = imagerotate($image,90,0);
+
+							break;
+
+						case 3:
+
+							$image = imagerotate($image,180,0);
+
+							break;
+
+						case 6:
+
+							$image = imagerotate($image,-90,0);
+
+							break;
+
+					}
+
+					imagejpeg($image,$uploadfullPath.$name);
+
+				}
+
+			}else{
+				$image = imagecreatefromjpeg($uploadfullPath.$name);
+			}
+
+			//파일 압축 및 업로드
+			imagejpeg($image,$uploadfullPath.$name,$quality);
+
 			$url = $imageBaseUrl.$name;
 		}else{
 			$message='실패';
@@ -285,7 +376,10 @@ class Travel extends CI_Controller
 				{
 				"fileName": "'.$name.'",
 				"uploaded": 1,
-				"url": "'.$url.'"
+				"url": "'.$url.'",
+                    "error":{
+                        "message":"'.$message.'"
+                    }
 				}
 			';
 
@@ -412,4 +506,20 @@ class Travel extends CI_Controller
 		}
 
 	}
+
+	public function compress($source,$quality)
+    {
+        $info = getimagesize($source);
+
+        if($info['mime'] == 'image/jpeg'){
+            $image = imagecreatefromjpeg($source);
+        }else if($info['mime'] == 'image/gif'){
+            $image = imagecreatefromgif($source);
+        }else if($info['mime'] == 'image/png'){
+            $image = imagecreatefrompng($source);
+        }
+        $image = imagejpeg($image,null,$quality);
+
+        return isset($image)?$image:"";
+    }
 }

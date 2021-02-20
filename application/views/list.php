@@ -17,7 +17,6 @@
 	<script src="https://kit.fontawesome.com/782926246a.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="http://min1512.cafe24.com/lsm/js/main.js" defer></script>
 	<script src="http://min1512.cafe24.com/lsm/js/owl/owl.carousel.min.js"></script>
 	<script src="http://min1512.cafe24.com/lsm/js/webfontloader.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
@@ -31,7 +30,7 @@
 
 	<!-- main2 -->
 	<div class="cpage main2" id="main2">
-		<div class="loader tImg" style="background-image: url(lsm/img/travel/airplane.jpg);"></div>
+		<div class="loader tImg" style="background-image: url(http://www.restlife.shop/lsm/img/travel/airplane.jpg);"></div>
 		<div class="sub_title">
 			<div class="eng TRAN">VIEWS</div>
 			<div class="txt TRAN">남들과 차원이 다르고 <span>효율적이고 가치있는 휴식을 취하세요.</span></div>
@@ -68,6 +67,37 @@
 				<div class="blogview_content">
 					<?= $img_get[0]['content'] ?>
 				</div>
+			</div>
+		</div>
+<!--		카테고리 다른글-->
+		<div class="another_category another_category_color_gray">
+			<?php
+				$url = $_SERVER['REQUEST_URI'];
+				$url = explode('/',$url);
+				$url = 'http://www.restlife.shop/'.$url[1].'/listAll';
+			?>
+			<h4>'<a href="#">RestLife</a>&nbsp;&gt;&nbsp;<a href="<?= $url; ?>"><?=$img_get_all[0]['dir'];?></a>' 카테고리의 다른 글</h4>
+			<div class="jb-responsive-table">
+				<table>
+					<tbody>
+
+					<?php foreach ($img_get_all as $k => $v) {
+							if($img_get_all[$k]['dir'] == 'food') $img_get_all[$k]['dir'] ='foods';
+						?>
+					<tr class="categoryNum">
+						<th>
+							<a href="http://www.restlife.shop/<?=$img_get_all[$k]['dir'];?>/lists/<?=$img_get_all[$k]['index'];?>"><?= $img_get_all[$k]['title']; ?></a>&nbsp;&nbsp;
+						</th>
+						<td><?= $img_get_all[$k]['reg_date']; ?></td>
+					</tr>
+					<?php } ?>
+
+
+					</tbody>
+				</table>
+			</div>
+			<!--					카테고리 리스트 페이징-->
+			<div id="categoryListPaging">
 			</div>
 		</div>
 <!--		댓글-->
@@ -113,6 +143,9 @@
 									</li>
 
 						<?php } ?>
+						<!--					댓글 리스트 페이징-->
+						<div id="replyListPaging">
+						</div>
 					</ul>
 					<?php } ?>
 				</div>
@@ -122,51 +155,6 @@
 	</div>
 
 </div>
-<!--<div>-->
-<!--	<div class="cpage main2" id="main3">-->
-<!--		<div class="sub_title">-->
-<!--			<div class="txt TRAN">인기 많은 글</div>-->
-<!--		</div>-->
-<!--		<div class="list">-->
-<!--			<div class="lists">-->
-<!--				<table>-->
-<!--					--><?php //foreach ($tempImgGetAll as $k => $v) { ?>
-<!--						--><?php //foreach ($v as $k2 => $v2) { ?>
-<!--								--><?php //if($k2 == 'jpg_name'){
-//									$jpg_name = $v2;
-//								}else if ($k2 == 'jpg_src'){
-//									$jpg_src = $v2;
-//								}else if ($k2 == 'title'){
-//									$title = $v2;
-//									//$content = substr($content,0,20);
-//								}else if($k2 == 'index'){
-//									$index = $v2;
-//								}else if($k2 == 'dir'){
-//									$dir = $v2;
-//								}
-//								?>
-<!--								<tr>-->
-<!--									<td>-->
-<!--										<div style="width: 150px; height: 150px">-->
-<!--											--><?php //if(empty($jpg_name)) { ?>
-<!--												<img src="--><?//= $jpg_src ?><!--" style="width: 150px; height: 150px;" >-->
-<!--											--><?php //}else{ ?>
-<!--												<img src="http://min1512.cafe24.com/lsm/img/food/--><?//= $jpg_name; ?><!--" style="width: 150px; height: 150px;">-->
-<!--											--><?php //} ?>
-<!--										</div>-->
-<!--									</td>-->
-<!--									<td>-->
-<!--										<a href='min1512.cafe24.com/--><?//= $dir; ?><!--/lists/--><?//= $index; ?><!--'>--><?//= isset($title)?$title:"";  ?><!--</a>-->
-<!--									</td>-->
-<!--								</tr>-->
-<!--						--><?// } ?>
-<!--					--><?// } ?>
-<!--				</table>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
-
 <script>
 	function getInputValue()
 	{
@@ -286,7 +274,7 @@
 			})
 		}
 	}
-
+	//사용 안함
 	function XSSCheck(str, level) {
 		if (level == undefined || level == 0) {
 			str = str.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
@@ -299,27 +287,29 @@
 
 	$(function (){
 		var session = '<?= isset($session['session_id'])?$session['session_id']:"" ?>';
-		$.ajax({
-			url: 'http://www.restlife.shop/Update/LikeButtonSelect',
-			type: 'post',
-			data: { 'id' : session, 'index_map' : '<?= $index_map; ?>' },
-			dataType: 'text',
-			success : function (result){
-				console.log(result);
-				if(result == 'sucess'){
-					console.log(result);
-					$('.ico_heart').css({
-						"background-position" : "-20px -46px"
-					})
-				}else{
-					console.log(result);
-				}
-			},
-			error: function (result){
-				console.log(result);
-				alert('Database error');
-			}
-		})
+		if(session != ''){
+            $.ajax({
+                url: 'http://www.restlife.shop/Update/LikeButtonSelect',
+                type: 'post',
+                data: { 'id' : session, 'index_map' : '<?= $index_map; ?>' },
+                dataType: 'text',
+                success : function (result){
+                    //console.log(result);
+                    if(result == 'sucess'){
+                        //console.log(result);
+                        $('.ico_heart').css({
+                            "background-position" : "-20px -46px"
+                        })
+                    }else{
+                        //console.log(result);
+                    }
+                },
+                error: function (result){
+                    //console.log(result);
+                    alert('Database error');
+                }
+            })
+        }
 	})
 
 	//댓글 이미지 클릭시 페이지 아래로 이동(댓글 쓰는곳으로) => 2021-01-20 추가
@@ -330,5 +320,175 @@
 			$('html, body').animate({scrollTop:offset.top},400);
 		});
 	});
+
+	//2021-02-07 추가 한거임.(카테고리 및 댓글 부분 페이징 처리)
+	//관련 카테고리글 페이징 처리
+	$(function (){
+		//처음 페이징 로딩 되었을때는 카테고리글 무조건 5개 보이게
+		$('.categoryNum').each(function (index){
+			if(index > 4){
+				$(this).hide();
+			}
+		});
+		//처음 페이징 로딩 되었을때는 댓글 글 무조건 5개 보이게
+		$('.item_cmt').each(function (index){
+			if(index > 4){
+				$(this).hide();
+			}
+		});
+
+
+		//카테고리 총 리스트 갯수
+		var listAll = $('.jb-responsive-table table tbody tr').length;
+		//댓글 총 리스트 갯수
+		var replyAll = $('.item_cmt').length;
+
+		//웹일 경우 5개씩, 모바일일때는 3개
+		var pagelist = 5;
+
+		//카테고리 페이지 넘버 수
+		var pageTotal = Math.ceil(listAll/pagelist);
+		//댓글 넘버 수
+		var replyPageTotal = Math.ceil(replyAll/pagelist);
+
+
+		//카테고리꺼
+		//지금 당장은 쓰지 않음. 차후 추가 할지 생각
+		//$('#categoryListPaging').append('<a class="pagingCategory" href="#" value="before"><</a>');
+		for (i=0; i<pageTotal; i++){
+			var pageNum = parseInt(i)+1;
+			$('#categoryListPaging').append('<a class="pagingCategory" value='+pageNum+'>'+pageNum+'</a>');
+		}
+		//지금 당장은 쓰지 않음. 차후 추가 할지 생각
+		//$('#categoryListPaging').append('<a class="pagingCategory" href="#" value="after">></a>');
+
+
+		//댓글꺼
+		$('#replyListPaging').append('<a class="pagingReplys" id="before" value="before"><</a>');
+		for (i=0; i<replyPageTotal; i++){
+			var pageNum = parseInt(i)+1;
+			if(pageNum%5 ==0){
+				$('#replyListPaging').append('<a class="pagingReply" id='+pageNum+'>'+pageNum+'</a>');
+			}else{
+				$('#replyListPaging').append('<a class="pagingReply" >'+pageNum+'</a>');
+			}
+		}
+		$('#replyListPaging').append('<a class="pagingReplys" id="after" value="after">></a>');
+
+		//카테고리꺼
+		$('#categoryListPaging').css('margin','auto').css('text-align','center');
+		$('.pagingCategory').css('color','#909090').css('font-size','20px').css('padding-right','5px');
+		//댓글꺼
+		$('#replyListPaging').css('margin','auto').css('text-align','center');
+		$('.pagingReply').css('color','#909090').css('font-size','20px').css('padding-right','5px');
+		$('.pagingReplys').css('color','#909090').css('font-size','20px').css('padding-right','5px');
+
+
+		//pagingCategory클릭 했을때 발생하는 이벤트
+		$('.pagingCategory').each(function (indexs){
+			var indexs = parseInt(indexs)+1;
+			$(this).click(function (){
+				$('.categoryNum').each(function (index){
+					var index = parseInt(index)+1;
+					var ckValue = (parseInt(indexs) - 1)*5;
+
+					if(index <= 5+parseInt(ckValue) && index >= 1+parseInt(ckValue)){
+						$(this).show();//앞에 5개 보여줌
+					}else{
+						$(this).hide();//앞에 5개 이외는 모두 hide
+					}
+				});
+			});
+		})
+
+
+		$('.pagingReply').each(function (index){
+			var index = index+1;
+			if(index > 5){
+				$(this).hide();
+			}
+
+			if(index <= 5){
+				$('.pagingReplys').hide();
+			}else{
+				$('.pagingReplys').show();
+			}
+		})
+
+		$('.pagingReplys').click(function (){
+			var chkval = $(this).attr('id');
+			$('.pagingReply').each(function (index){
+				var last = $('.pagingReply:last').index();
+				var index = index+1;
+				var view = $(this).is(':visible');
+				if(view == true){
+					var id = $(this).attr('id');//현재 보여주는 곳의 마지막 해당 글 id
+					if(id != undefined){
+						var lastId = id;
+						pagingReplys(lastId,chkval);//현재 보여주는 곳의 마지막 해당 글 id
+						return false;
+					}
+				}
+
+				if(index == last){
+					if(last %5 != 0){
+						var mok = last/5;
+						pagingReplys(parseInt(mok)*5+5,chkval,'noAction');//현재 보여주는 곳의 마지막 해당 글 id
+					}
+				}
+
+			})
+		})
+
+		function pagingReplys(lastId,chkval,check)
+		{
+			$('.pagingReply').each(function (index){
+				var index = index+1;
+				if(chkval == 'after'){
+					if(check != 'noAction'){
+						if(index >= 1+parseInt(lastId) && index <= 5+parseInt(lastId)){
+							$(this).show();
+						}else{
+							$(this).hide();
+						}
+					}
+				}else if(chkval == 'before'){
+					if(lastId != 5 || check == 'noAction'){
+						if(index <= parseInt(lastId)-5 && index > parseInt(lastId)-10 ){
+							$(this).show();
+						}else{
+							$(this).hide();
+						}
+					}
+				}
+
+			})
+		}
+
+		//pagingReply클릭 했을때 발생하는 이벤트
+		$('.pagingReply').each(function (indexs){
+			var indexs = parseInt(indexs)+1;
+			$(this).click(function (){
+				$('.item_cmt').each(function (index){
+					var index = parseInt(index)+1;
+					var ckValue = (parseInt(indexs) - 1)*5;
+
+					if(index <= 5+parseInt(ckValue) && index >= 1+parseInt(ckValue)){
+						$(this).show();//앞에 5개 보여줌
+					}else{
+						$(this).hide();//앞에 5개 이외는 모두 hide
+					}
+				});
+			});
+		})
+
+		//댓글 항목쪽 글 많아질 경우 페이징 처리
+		// $('#replyPageTotal').each(function (index)){
+		// 	var index = index+1;
+		// 	if(index >5){
+		// 		$(this).hide();
+		// 	}
+		// }
+	})
 
 </script>

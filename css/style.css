@@ -8,6 +8,12 @@ a {
 }
 
 .navbar{
+	/*2021-02-18  코드 추가*/
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+	/*##*/
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -58,11 +64,24 @@ a {
 	color: #8a6d3b;
 }
 
+.nav-up{
+	top: -90px;
+}
+
+.nav-down{
+	top: 0px;
+}
+
 @media screen and (max-width: 768px) {
 	.navbar{
+		/*2021-02-18  코드 추가*/
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+		/*##*/
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 8px 24px;
+		padding: 8px 8px;
 	}
 
 	.navbar_menu{

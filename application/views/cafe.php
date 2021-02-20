@@ -135,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									?>
 									<li class="goods_item">
 										<div class="img">
-											<a href="http://www.restlife.shop/Cafe/lists/<?= $img_get[$k]['index'] ?>" class="img_link">
+											<a href="http://www.restlife.shop/Cafe/lists/<?= $img_get[$k]['index'] ?>" class="img_link" id="img_link<?=$k?>">
 												<?php if(!empty($img_get[$k]['jpg_name'])) { ?>
 													<img src="http://www.restlife.shop/lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>" alt>
 												<?php }else if(!empty($img_get[$k]['jpg_src'])){ ?>
@@ -157,11 +157,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<!--										<span class="spr-common spr_ico_arrow_down"></span>-->
 												<!--										)-->
 												<!--									</span>-->
-								</span>
+											</span>
 											<!--								<span class="icon_block">-->
 											<!--									<span class="spr-common spr_ico_coupon"></span>-->
 											<!--								</span>-->
 										</a>
+										<div>
+											<a href="javascript:void(0);" id="btn<?=$k?>" class="kakaoBtn" >
+												<img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" alt>
+											</a>
+										</div>
 									</li>
 									<?php
 								}
@@ -180,7 +185,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <br><br><br><br><br>
         </div>
     <?php } ?>
-
+	<!-- Kakao API -->
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 	<script>
 		$(document).ready(function (){
 			//slider random init
@@ -203,6 +209,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				initialSlide : return_index()
 			});
 		})
+		//카카오톡 API
+		Kakao.init('4694cb5b8c8e66cacb2d0a39085272ca'); //6번 항목에서 발급 받았던 javascript key를 여기에 넣는다.
+		$('.kakaoBtn').each(function (index) {
+			$(this).attr('kakaoBtn-index',index);
+			var indexs = $(this).attr('kakaoBtn-index');
+			$("#btn" +indexs ).click(function(e) { //jquery를 사용한다 가정
+				e.preventDefault();   //이벤트 버블링 prevent
+				var img_link = $('#img_link'+indexs).attr('href');
+				// Kakao.Link.sendCustom({
+				// 	templateId: 46191   // 15번 항목에서 확인하였던 이벤트번호 등록
+				// });
+				Kakao.Link.createScrapButton({
+					container: '#btn'+indexs,
+					requestUrl: img_link
+				});
+			});
+		});
 	</script>
 
 </div>

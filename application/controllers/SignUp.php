@@ -23,7 +23,10 @@ class SignUp extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('include/layout',$this->sessions);
+        $layout = array();
+        $layout['sessions'] = $this->sessions;
+
+		$this->load->view('include/layout',$layout);
 		$this->load->view('signup');
 		$this->load->view('include/footer');
 	}

@@ -186,6 +186,10 @@
 }
 @media ( max-width: 768px ) {
 	.firstSliderWrap {
+		/*2021-02-18 추가*/
+		z-index: -1;
+		top: 48px;
+		/**/
 		height: auto;
 		padding-top: 56.25%;
 	}

@@ -123,4 +123,41 @@ class Photo_m extends CI_Model
 
 		return $result->result_array();
 	}
+
+    public function img_get_detail_list($index,$param)
+    {
+        if(!empty($index)){
+            $query_add = "and t.index_map = '.$index.'and t.use_yn='Y'";
+        }else{
+            $query_add ="and t.use_yn='Y'";
+        }
+
+        $query_limit = "limit ".$param['startLimit'].", ".$param['rdoLimitNumRows']."";
+
+        $query = "
+			select
+				im.index
+			 	,i.img_name      as title_name
+			 	,im.dir         as dir
+			 	,im.jpg_name    as jpg_name
+			 	,im.jpg_src     as jpg_src
+			 	,t.title        as title
+			 	,t.content      as content
+			 	,t.password     as password
+			 	,t.reg_date     as reg_date
+			from
+				img_map im
+				inner join img i 
+				on i.idx = im.idx
+				and i.img_name = 'photo'
+				inner join photo t 
+				on t.index_map = im.index
+				".$query_add."
+				".$query_limit."
+		";
+        //var_dump($query);
+        $result = $this->db->query($query);
+
+        return $result->result_array();
+    }
 }

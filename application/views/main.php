@@ -2,6 +2,34 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <script>
+    //사이트 처음 켰을때 알림 가게 하는거
+    window.onload = function () {
+        if (window.Notification) {
+            Notification.requestPermission();
+        }
+    }
+
+
+    setTimeout(function () {
+        notify();
+    }, 1000);
+
+
+    function notify() {
+        if (Notification.permission !== 'granted') {
+
+        }
+        else {
+            var notification = new Notification('Notification title', {
+                icon: 'http://www.restlife.shop/lsm/img/favicon.ico',
+                body: 'RestLife',
+            });
+
+            notification.onclick = function () {
+                window.open('http://www.restlife.shop');
+            };
+        }
+    }
 
 	$(document).ready(function(){
 		var owl = $('.owl-carousel');
@@ -45,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="all_wrap">
 
 		<!-- 메인 슬라이드 -->
-		<div id="firstSliderWrapmain1_top" class="cpage firstSliderWrap">
+		<div id="firstSliderWrapmain1_top" class="cpage firstSliderWrap" style="z-index: -1;">
 			<div class="firstSlider" id="firstSlider">
 				<div class="main-slides owl-carousel">
 					<img class="img1" height="770px" src="http://min1512.cafe24.com/lsm/img/rest1.jpg">
@@ -82,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="main1_bottom_wrap">
 				<div class="main1_bottom">
-					<a href="http://www.restlife.shop/Travel">
+					<a href="http://www.restlife.shop/Travel/listAll">
 						<div class="icon"><img src="/lsm/img/travel/travel1.png" alt="" height="100px"></div>
 						<div class="con_ttl">Travel</div>
 						<div class="con_txt">
@@ -91,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://www.restlife.shop/Foods">
+					<a href="http://www.restlife.shop/Foods/listAll">
 						<div class="icon"><img src="/lsm/img/food/food1.jpg" alt="" height="100px"></div>
 						<div class="con_ttl">Foods</div>
 						<div class="con_txt">여행의 묘미 맛집 찾기
@@ -99,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://www.restlife.shop/Photo">
+					<a href="http://www.restlife.shop/Photo/listAll">
 						<div class="icon"><img src="/lsm/img/photo/photo1.jpg" alt="" height="100px"></div>
 						<div class="con_ttl">Photo</div>
 						<div class="con_txt">다양한 사진들이 준비
@@ -107,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class="btn_view">view more</div>
 					</a>
-					<a href="http://www.restlife.shop/Cafe">
+					<a href="http://www.restlife.shop/Cafe/listAll">
 						<div class="icon"><img src="/lsm/img/cafe/cafe1.png" alt="" height="100px"></div>
 						<div class="con_ttl">Cafe</div>
 						<div class="con_txt">분위기 좋고 힐링이 되는

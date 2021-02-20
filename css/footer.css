@@ -7,6 +7,37 @@
 .footer li:first-child:before {width: 0;}
 .footer address {padding-top: 15px;}
 .footer address a{color: black; font-family: 'Lato', sans-serif}
+ a.jb-top {
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	z-index: 9999;
+	display: none;
+	width: 48px;
+	padding: 10px 0px;
+	border-radius: 4px;
+	background-color: #212121;
+	background-color: rgba(20, 20, 20, 0.8);
+	text-align: center;
+	line-height: 1;
+	font-size: 28px;
+	color: #ffffff;
+}
+/*.footer .page-top:hover{*/
+/*	background-color: #757575;*/
+/*	background-position-x: -150px;*/
+/*}*/
+
+/*.footer .page-top{*/
+/*	position: relative;*/
+/*	top: 0;*/
+/*	right: -730px;*/
+/*	width: 30px;*/
+/*	height: 30px;*/
+/*	border: 1px solid #eee;*/
+/*	border-radius: 50%;*/
+/*	text-indent: -999em;*/
+/*}*/
 
 @media (max-width: 400px) {
 	.footer li {position: relative; display: none; padding: 0 7px 0 10px; white-space: nowrap;}

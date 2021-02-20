@@ -16,13 +16,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</ul>
 				<address>
 					Copyright ©
-					<a href="http://min1512.cafe24.com/"><strong>LeeSangMin</strong></a><br>
+					<a href="http://restlife.shop"><strong>LeeSangMin</strong></a><br>
 					All Rights Reserved.
 				</address>
 			</div>
 		</div>
 	</div>
 </footer>
-
+<a onclick="scrollToTop()" class="jb-top" style="display: block;"><i class="fa fa-arrow-up"></i></a>
 </body>
+
+<script>
+	var timeOut;
+	function scrollToTop() {
+		if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+			window.scrollBy(0,-50);
+			timeOut=setTimeout('scrollToTop()',10);
+		}
+		else clearTimeout(timeOut);
+	}
+</script>
 </html>
+
+
