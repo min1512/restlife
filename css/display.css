@@ -1,0 +1,783 @@
+
+/* EVENT PAGE */
+.event {
+	width: 1220px;
+	margin: 0 auto;
+}
+.event_date {
+	color: #666;
+	font-size: 12px;
+	line-height: 25px;
+	padding: 20px 0 15px 0;
+}
+.event_visual {
+	margin-bottom: 50px;
+}
+.event_section .title_page {
+	padding: 42px 0 16px;
+}
+.section_tab_list {
+	*zoom: 1;
+}
+.section_tab_list:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.section_tab_list > li {
+	float: left;
+	border: 1px solid #eee;
+	text-align: center;
+	position: relative;
+	width: 242px;
+	height: 53px;
+}
+.section_tab_list > li a {
+	display: block;
+	line-height: 53px;
+	font-size: 12px;
+	color: #999;
+}
+.section_tab_list > li a:hover {
+	text-decoration: none;
+}
+
+.section_tab_list > li:first-child {
+	width: 242px;
+}
+.section_tab_list > li .section_tab_line {
+	display: none;
+}
+.section_tab_list > li.active a {
+	color: #000;
+}
+.section_tab_list > li.active .section_tab_line {
+	display: block;
+	border: 1px solid #000;
+	width: 243px;
+	height: 53px;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+}
+.section_tab_list > li.active .section_tab_line:first-child {
+	width: 242px;
+}
+/* magazine */
+.magazine {
+	width: 1220px;
+	margin: 0 auto;
+	padding: 111px 0 100px;
+}
+.magazine .btn_list_go {
+	display: block;
+	margin: 60px auto 0;
+}
+.magazine_inner {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 93px;
+}
+.magazine_cont {
+	width: 700px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.magazine_title {
+	text-align: center;
+	color: #000;
+	font-size: 50px;
+	font-family: 'NanumMyeongjo', '나눔명조', 'Nanum Myeongjo', sans-serif;
+	font-weight: normal;
+	border-bottom: 1px solid #333;
+	line-height: 1.5;
+	padding: 30px 0 30px;
+	letter-spacing: -2px;
+	word-spacing: -2px;
+	margin-bottom: 74px;
+}
+.magazine_title .small_text {
+	display: block;
+	font-size: 14px;
+	line-height: 30px;
+	padding-top: 2px;
+	font-family: '맑은 고딕', MalgunGothic, '돋움', Helvetica, AppleSDGothicNeo, sans-serif;
+	letter-spacing: 0;
+	word-spacing: 0;
+}
+.magazine_text {
+	color: #999;
+	font-size: 14px;
+	line-height: 25px;
+}
+.magazine_text + .magazine_img {
+	margin-top: 75px;
+}
+.magazine_text + .magazine_text {
+	margin-top: 15px;
+}
+.magazine_img + .magazine_text {
+	margin-top: 35px;
+}
+.magazine_img + .magazine_img {
+	margin-top: 20px;
+}
+.magazine .prd_list {
+	padding-bottom: 45px;
+}
+.magazine .prd_list .sub {
+	font-family: 'notosanscjkkr-Medium';
+}
+
+/* 버튼 (매거진 상세, ) */
+.magazine-view-cont-btn {
+	text-align: center;
+}
+.magazine-view-cont-btn > a {
+	display: inline-block;
+	width: 300px;
+}
+.magazine-view-cont-btn img,
+.magazine-view-cont-share img {
+	max-width: 100%;
+}
+.magazine-view-cont-share {
+	position: relative;
+	text-align: center;
+}
+.magazine-view-cont-share .btn-share {
+	display: inline-block;
+	margin: auto;
+	width: 300px;
+}
+/* 공유하기 - 인접 팝업 (매거진 상세, ) */
+.layer2 {
+	position: absolute;
+	top: 56px;
+	left: 50%;
+	margin-left: -150px;
+	background: #fff;
+}
+.layer2.layer-sns-share .layer-sns-list {
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px #ddd;
+}
+.layer2.layer-sns-share .layer-sns-item {
+	float: left;
+	width: auto;
+	padding: 10px;
+}
+.layer2.layer-sns-share .spr-layer {
+	display: inline-block;
+	vertical-align: middle;
+	width: 46px;
+	height: 46px;
+}
+.layer2.layer-sns-share .layer-sns-kakaotalk {
+	background-position: 0px -138px;
+}
+.layer2.layer-sns-share .layer-sns-facebook {
+	background-position: 0px 0px;
+}
+.layer2.layer-sns-share .layer-sns-instagram {
+	background-position: 0px -46px;
+}
+.layer2.layer-sns-share .layer-sns-kakaostory {
+	background-position: 0px -92px;
+}
+.layer2.layer-sns-share .hide {
+	position: absolute;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+}
+
+/* about etah */
+.about_etah {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 165px 0 80px;
+}
+.about_etah_visual {
+	padding-bottom: 57px;
+}
+.about_etah_info_item {
+	zoom: 1;
+	padding-bottom: 82px;
+}
+.about_etah_info_item:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.about_etah_logo {
+	padding-bottom: 18px;
+}
+.about_etah_logo .about_etah_info_text {
+	width: 660px;
+	padding-left: 38px;
+}
+.about_etah_belive .about_etah_info_text {
+	padding-top: 73px;
+}
+.about_etah_belive .about_etah_info_img {
+	float: right;
+}
+.about_etah_deliver .about_etah_info_text {
+	padding: 88px 0 0 70px;
+}
+.about_etah_info_img {
+	float: left;
+}
+.about_etah_info_text {
+	float: left;
+}
+.about_etah_info_title {
+	font-family: 'NanumMyeongjo', '나눔명조', 'Nanum Myeongjo', sans-serif;
+	font-weight: normal;
+	font-size: 40px;
+	color: #333;
+	line-height: 40px;
+	padding-bottom: 9px;
+}
+.about_etah_info_explain {
+	color: #666;
+	font-size: 12px;
+	line-height: 20px;
+	padding: 0 0 26px 5px;
+}
+.about_etah_logotype_title {
+	color: #000;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: normal;
+	padding: 0 0 19px 5px;
+}
+.about_etah_logotype_type {
+	padding-left: 8px;
+}
+.about_etah_logotype_type img{
+	width: 100%;
+}
+.about_etah_logotype_type .title {
+	color: #666;
+	font-size: 14px;
+	line-height: 24px;
+	display: block;
+	padding-bottom: 12px;
+}
+.about_etah_logotype_type .title .spr_arrow_right_02 {
+	margin: 0 3px;
+}
+.about_etah_logotype_type__division {
+	zoom: 1;
+	padding-top: 21px;
+	width: 653px;
+}
+.about_etah_logotype_type__division:after {
+	display: block;
+	content: '';
+	clear: both;
+}
+.about_etah_logotype_type__division .combination {
+	float: left;
+	width: 47%;
+}
+.about_etah_logotype_type__division .primary {
+	float: left;
+	padding-left: 19px;
+	width: 50%;
+}
+/* etah best item */
+.etah_best_item {
+	position: relative;
+	height: 100%;
+}
+.etah_best_item .page_title {
+	font-size: 26px;
+	font-weight: bold;
+	padding-bottom: 24px;
+}
+.etah_best_item .basic_goods_list {
+	margin: auto;
+	width: 1240px;
+}
+.etah_best_item .goods_list .goods_item .goods_item_link .best_num {
+	display: block;
+	color: #000;
+	font-size: 30px;
+	line-height: 30px;
+	padding-bottom: 6px;
+}
+/* use_clause */
+.use_clause {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 145px 0 100px;
+}
+.use_clause_inner {
+	border: 1px solid #f0f0f0;
+	padding: 35px 40px;
+}
+.use_clause_inner .use_clause_title {
+	padding-bottom: 24px;
+	color: #000;
+}
+.use_clause_inner .use_clause_list + .table_basic_type {
+	margin-top: 30px;
+}
+.use_clause_inner .table_basic_type th {
+	font-size: 12px;
+	font-weight: normal;
+	padding: 11px 5px 13px;
+}
+.use_clause_inner .table_basic_type td {
+	text-align: left;
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 12px;
+	vertical-align: top;
+}
+/* 입점문의 */
+.inquiry_office {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 148px 0 100px;
+}
+.inquiry_office_progress {
+	zoom: 1;
+	border: 1px solid #f0f0f0;
+	border-left: 0 none;
+}
+.inquiry_office_progress:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.inquiry_office_progress_item {
+	float: left;
+	text-align: center;
+	border-left: 1px solid #f0f0f0;
+	width: 165px;
+	height: 143px;
+	padding-top: 29px;
+	position: relative;
+}
+.inquiry_office_progress_item .spr_ico_inquiry_office_arrow {
+	display: inline-block;
+	position: absolute;
+	right: -21px;
+	top: 50%;
+	margin-top: -20px;
+	z-index: 2;
+}
+.inquiry_office_progress_item .spr_ico_inquiry_office_01,
+.inquiry_office_progress_item .spr_ico_inquiry_office_02,
+.inquiry_office_progress_item .spr_ico_inquiry_office_03,
+.inquiry_office_progress_item .spr_ico_inquiry_office_04,
+.inquiry_office_progress_item .spr_ico_inquiry_office_05,
+.inquiry_office_progress_item .spr_ico_inquiry_office_06 {
+	margin: 0 auto;
+	display: block;
+}
+.inquiry_office_progress_item .title {
+	color: #666;
+	font-size: 12px;
+	display: inline-block;
+	line-height: 16px;
+	padding-top: 10px;
+}
+.inquiry_office_progress_item .explain {
+	color: #999;
+	font-size: 11px;
+	display: inline-block;
+	line-height: 14px;
+	padding-top: 11px;
+}
+.inquiry_office_progress_item .line {
+	display: block;
+	border: 1px solid #333;
+	width: 165px;
+	height: 172px;
+	position: absolute;
+	top: -1px;
+	left: 0;
+}
+.inquiry_office_table_wrap {
+	padding-top: 45px;
+}
+.inquiry_office_table_wrap .table_title {
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 18px;
+}
+.inquiry_office_table_wrap .btn_white {
+	margin-left: 2px;
+	padding: 0 19px;
+}
+.inquiry_office_table_wrap .normal_table + .table_title {
+	padding-top: 46px;
+}
+.inquiry_office_table_wrap .table_basic_type table td {
+	color: #999;
+	padding: 18px 5px 18px;
+}
+.inquiry_office_table_wrap textarea.input_text {
+	min-height: 113px;
+}
+.inquiry_office_table_wrap .select_wrap + label {
+	margin-left: 2px;
+}
+.inquiry_office_table_wrap + .btn_list {
+	margin-top: 60px;
+}
+.inquiry_info_agree {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 16px 20px 20px;
+}
+.inquiry_info_agree .table_basic_type + .inquiry_info_agree_text {
+	padding-top: 11px;
+}
+.inquiry_info_agree .checkbox_label {
+	color: #000;
+}
+.inquiry_info_agree_text {
+	color: #666;
+	font-size: 12px;
+	line-height: 20px;
+	padding-bottom: 12px;
+}
+/* min-layout */
+.min-layout {
+	/* main */
+	/* vip */
+	/* magazine */
+	/* ethas_chioce */
+	/* brand_recommend */
+	/* event */
+}
+.min-layout .contents.main {
+	width: 1240px;
+}
+.min-layout .wrap__vip .contents {
+	width: 100%;
+}
+.min-layout .contents.magazine {
+	padding-left: 200px;
+	width: 1000px;
+}
+.min-layout .wrap__vip .location {
+	width: 1218px;
+}
+/* none left menu(vip) */
+.min-layout .vip01 .location {
+	padding-left: 0;
+}
+.min-layout .vip01 .location .title_page {
+	padding-left: 40px;
+	padding-top: 14px;
+}
+.min-layout .vip_banner .btn_left {
+	left: 9px;
+}
+.min-layout .vip_banner .btn_right {
+	left: 651px;
+}
+.min-layout .vip_banner.vip_banner_fadeui .vip_banner_list {
+	margin-left: 40px;
+}
+.min-layout .vip_banner_list {
+	margin-left: -601px;
+}
+.min-layout .vip_banner_corver {
+	left: -601px;
+}
+.min-layout .vip_banner.vip_banner_one .vip_banner_list {
+	margin-left: 39px;
+}
+.min-layout .vip_banner_btn {
+	padding-left: 40px;
+}
+.min-layout .vip_event_banner {
+	padding-left: 0;
+	margin: 0 auto 90px;
+}
+.min-layout .vip_inner {
+	width: 1230px;
+}
+.min-layout .vip_brand_recom {
+	padding-left: 0;
+	margin: 0 auto 71px;
+}
+.min-layout .vip_brand_about {
+	padding-left: 0;
+	margin: 0 auto 97px;
+}
+.min-layout .vip_prd_info {
+	padding-left: 0;
+	margin: 0 auto;
+}
+.min-layout .vip_detail {
+	position: absolute;
+	top: 220px;
+	left: auto;
+	right: 0;
+}
+.min-layout .contents_inner {
+	width: 1000px;
+}
+.min-layout .cpp_banner {
+	height: 300px;
+}
+.min-layout .cpp_banner_item {
+	height: 300px;
+	background-size: 100% auto;
+}
+.min-layout .cpp_banner_item .title {
+	left: 100px;
+}
+.min-layout .cpp_banner_item .description {
+	left: 104px;
+}
+/* .min-layout .cpp_banner_item__type1 {
+  background-position: -452px 0;
+}
+.min-layout .cpp_banner_item__type2 {
+  background-position: -313px 0;
+} */
+.min-layout .cpp_goods_item {
+	width: 320px;
+	height: 320px;
+}
+.min-layout .cpp_goods_item + .min-layout .cpp_goods_item {
+	padding-left: 16px;
+}
+.min-layout .cpp_goods_item img {
+	width: 100%;
+}
+.min-layout .brand_recommend_item {
+	height: 157px;
+	background-size: 100%;
+}
+.min-layout .brand_recommend_link .title,
+.min-layout .brand_recommend_link .description {
+	left: 80px;
+}
+.min-layout .event .basic_goods_list {
+	margin-left: -20px;
+}
+.min-layout .event .basic_goods_list .goods_item {
+	margin-left: 20px;
+}
+.min-layout .event .goods_list .goods_item {
+	width: 290px;
+	margin-bottom: 30px;
+}
+.min-layout .event .goods_list .goods_item .img {
+	height: 290px;
+}
+.min-layout .event .goods_list .goods_item .img .img_link {
+	height: 290px;
+}
+.min-layout .event .goods_action_menu {
+	top: 230px;
+}
+.min-layout .etah_best_item .basic_goods_list {
+	margin-left: -20px;
+}
+.min-layout .etah_best_item .basic_goods_list .goods_item {
+	margin-left: 20px;
+}
+.min-layout .etah_best_item .goods_list .goods_item {
+	width: 320px;
+	margin-bottom: 30px;
+}
+.min-layout .etah_best_item .goods_list .goods_item .img {
+	height: 290px;
+}
+.min-layout .etah_best_item .goods_list .goods_item .img .img_link {
+	height: 290px;
+}
+.min-layout .etah_best_item .goods_action_menu {
+	top: 230px;
+}
+.loading_block {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 200px;
+	background: #fff;
+	-webkit-animation-name: loading_move__all;
+	animation-name: loading_move__all;
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+.loading_block .logo_bg {
+	display: inline-block;
+}
+.loading_block .logo_t {
+	display: inline-block;
+	position: absolute;
+	left: 13px;
+	top: 11px;
+	z-index: 10;
+	-webkit-animation-name: loading_move__t;
+	animation-name: loading_move__t;
+	-webkit-animation-duration: 2s;
+	animation-duration: 2s;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+}
+
+.loading_contetns {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -64px;
+	margin-top: -15px;
+	width: 128px;
+	height: 30px;
+}
+@-webkit-keyframes loading_move__t {
+	0% {
+		top: 11px;
+	}
+	40% {
+		top: 11px ;
+	}
+	60% {
+		top: 4px ;
+	}
+	100% {
+		top: 4px;
+	}
+}
+@keyframes loading_move__t {
+	0% {
+		top: 11px;
+	}
+	40% {
+		top: 11px ;
+	}
+	60% {
+		top: 4px ;
+	}
+	100% {
+		top: 4px;
+	}
+}
+@-webkit-keyframes loading_move__a {
+	0% {
+		top: 0;
+	}
+	40% {
+		top: 0 ;
+	}
+	60% {
+		top: 4px ;
+	}
+	100% {
+		top: 4px;
+	}
+}
+@keyframes loading_move__a {
+	0% {
+		top: 0;
+	}
+	40% {
+		top: 0 ;
+	}
+	60% {
+		top: 4px ;
+	}
+	100% {
+		top: 4px;
+	}
+}
+@-webkit-keyframes loading_move__all {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes loading_move__all {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* coupon_event */
+.coupon_event {
+	margin-bottom: 46px;
+	background: #edeff1;
+	padding: 46px 105px 46px;
+}
+.coupon_event_title {
+	color: #000;
+	font-size: 24px;
+	font-weight: normal;
+	text-align: center;
+}
+.coupon_event_title:after {
+	display: block;
+	content: '';
+	width: 52px;
+	height: 1px;
+	background: #888;
+	margin: 26px auto 0;
+}
+.coupon_event_coupon {
+	display: block;
+	margin-top: 23px;
+	text-align: center;
+}
+.btn_positive__coupon {
+	display: block;
+	width: 215px;
+	margin: 33px auto 0;
+}
+.coupon_event_note {
+	margin-top: 50px;
+	border-top: 1px solid #888;
+}
+.coupon_event_note .bullet_item {
+	font-size: 13px;
+	color: #000;
+	line-height: 20px;
+}
+.coupon_event_note_title {
+	color: #000;
+	font-size: 14px;
+	text-decoration: underline;
+	padding: 47px 0 24px;
+}
