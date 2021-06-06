@@ -190,6 +190,18 @@ class Foods extends CI_Controller
 		$dir = $this->uri->segment(1);
 		$index = $this->uri->segment(3);
 
+		//게시판 글 카운트  유무 확인
+		$ckCountView = $this->foods_m->ckCountView($dir,$index,$_SERVER['REMOTE_ADDR']);
+
+		if(empty($ckCountView)){
+			//게시판 글 카운트 증가
+			$views = array();
+			$views['chkViews'] = $dir;
+			$views['index_map'] = $index;
+			$views['ip'] = $_SERVER['REMOTE_ADDR'];
+			$this->db->insert('countViews',$views);
+		}
+
 		$data =array();
 		//매핑이 되어 있는 이미지 호출
 		$img_get = $this->foods_m->img_get($index);
@@ -200,8 +212,10 @@ class Foods extends CI_Controller
 		$likeButtonCount = $this->foods_m->likeButtonCount($index);
 		$data['likeButtonCount'] = count($likeButtonCount);
 		$replyComment    = $this->foods_m->replyComment($index);
+		$CountView    = $this->foods_m->CountView( $dir,$index );//조회수 갯수 몇개인지 체크 (2021-06-06)
 		$data['replyComment'     ] = $replyComment;
 		$data['replyCommentCount'] = count($replyComment);
+		$data['CountView'] = count($CountView);//조회수 총 갯수
 
 		//관련 카테고리 전체 글 가져 오기(2021-02-05 추가)
 		$img_get_all = $this->foods_m->img_get(null);

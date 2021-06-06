@@ -41,6 +41,10 @@
 				<div class="blogview_info">
 					<time class="txt_date"><?= $img_get[0]['reg_date'] ?></time>
 					<span class="sympathy_wrap">
+							<!-- 조회수 -->
+							<a href="#count" class="info_sym" id="countLayer">
+                                <i class="far fa-eye"></i><span class="count_comment">&nbsp;<?= $CountView; ?></span>
+                            </a>
 							<a href="#comment" class="info_sym" id="moveLayer">
                                 <span class="ico_comm ico_comment">댓글수</span><span class="count_comment"><?= $replyCommentCount ?></span>
                             </a>

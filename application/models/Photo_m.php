@@ -160,4 +160,43 @@ class Photo_m extends CI_Model
 
         return $result->result_array();
     }
+
+	public function ckCountView( $dir,$index,$ip )
+	{
+		$query = "
+			select
+			 	CV.idx,
+			    CV.ip
+			from
+				countViews CV
+			where
+				CV.chkViews = '".$dir."'
+					and
+				CV.index_map = '".$index."'
+					and
+				CV.ip = '".$ip."'  	
+		";
+
+		$result = $this->db->query($query);
+
+		return $result->row_array();
+	}
+
+	public function CountView( $dir,$index )
+	{
+		$query = "
+			select
+			 	*
+			from
+				countViews CV
+			where
+				CV.chkViews = '".$dir."'
+					and
+				CV.index_map = '".$index."'					  	
+		";
+
+		$result = $this->db->query($query);
+
+		return $result->result_array();
+	}
 }

@@ -54,18 +54,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $('.page-num-item').each(function (index) {
                 $(this).attr('page-num-item-index',index);
                 var indexs = $(this).attr('page-num-item-index');
-                if(param == (parseInt(indexs)+1) ){
+                if(param == (parseInt(indexs)) ){
                     $('.page-num-item[page-num-item-index='+indexs+']').addClass('active');
                     $('.page-num-item[page-num-item-index!='+indexs+']').removeClass('active');
-                }
+                }else if(param == 1){
+					$('.page-num-item[page-num-item-index=0]').addClass('active');
+					$('.page-num-item[page-num-item-index!=0]').removeClass('active');
+				}
             });
-            $('.page-num-link').each(function (index) {
-                $(this).attr('page-num-link-index',index);
-                var indexs = $(this).attr('page-num-link-index');
-                if(parseInt(indexs)==0){
-                    $('.page-num-link[page-num-link-index='+indexs+']').prop("href","http://www.restlife.shop/Cafe/listAll/1");
-                }
-            });
+            // $('.page-num-link').each(function (index) {
+            //     $(this).attr('page-num-link-index',index);
+            //     var indexs = $(this).attr('page-num-link-index');
+            //     if(parseInt(indexs)==0){
+            //         $('.page-num-link[page-num-link-index='+indexs+']').prop("href","http://www.restlife.shop/Cafe/listAll/1");
+            //     }
+            // });
         });
 	</script>
 

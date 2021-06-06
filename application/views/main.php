@@ -179,44 +179,97 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
-		<!-- main2 -->
-		<div class="cpage main2" id="main2">
+
+		<?php
+
+			$mAgent = array("iPhone","iPod","Android","Blackberry",
+				"Opera Mini", "Windows ce", "Nokia", "sony" );
+			$chkMobile = false;
+			for($i=0; $i<sizeof($mAgent); $i++){
+				if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] )){
+					$chkMobile = true;
+				}
+			}
+		?>
+
+		<!-- main3 -->
+		<div class="cpage main3" id="main3">
 			<div class="loader tImg" style="background-image: url(lsm/img/rest1.jpg);"></div>
 			<div class="sub_title">
-				<div class="eng TRAN">VIEWS</div>
-				<div class="txt TRAN">남들과 차원이 다르고 <span>효율적이고 가치있는 휴식을 취하세요.</span></div>
-				<a class="btn_sub" href="rooms.html">view all post <i class="fas fa-caret-right"></i></a>
+				<div class="eng TRAN">NEWS</div>
+				<div class="txt TRAN">오늘의 헤드라인<span>뉴스입니다.</span></div>
+<!--				<a class="btn_sub" href="#">view all post <i class="fas fa-caret-right"></i></a>-->
+				<?php if($chkMobile != true) { ?>
+                <table class="afternoon-sessions" cellspacing="1">
+                    <thead>
+                    <tr>
+                        <th scope="row">Title</th>
+                        <th scope="row">Description</th>
+                        <th scope="row">PubDate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($naverNews as $k => $v) {
+                            foreach ($v as $k2 => $v2) {
+                                if($k2 == 'title'){
+                                    $title = $v2;
+                                }else if($k2 =='orginalLink'){
+                                    $orginalLink = $v2;
+                                }else if($k2 =='description'){
+                                    $description = $v2;
+                                }else if($k2 =='regDate'){
+                                    $regDate = $v2;
+                                }
+                            }
+                    ?>
+                    <tr>
+                        <td><a href="<?= $orginalLink; ?>" style="color: #0b0b0b"><?= isset($title)?$title:"" ?></a></td>
+                        <td><a href="<?= $orginalLink; ?>" style="color: #0b0b0b"><?= isset($description)?$description:"" ?></a></td>
+                        <td><?= isset($regDate)?$regDate:"" ?></td>
+                    </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
 			</div>
-
-
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-						<?php foreach ($img_get as $k => $v) {
-							 foreach ($v as $k2 => $v2) {
-							 	if($k2 == 'dir'){
-									if($v2=='Rest_Life_Post' || $v2 =='dog'){
-						?>
-								<div class="swiper-slide">
-									<a href="#"><img src="lsm/img/<?=$img_get[$k]['dir']?>/<?=$img_get[$k]['jpg_name']?>" width="300px;" height="500px;"></a>
-								</div>
-						<?php
-									}
-							 	}
-							}
-						}
-						?>
-					</div>
-
-					<!-- 네비게이션 버튼 -->
-					<div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
-					<div class="swiper-button-prev"></div><!-- 이전 버튼 -->
-
-					<!-- 페이징 -->
-					<div class="swiper-pagination"></div>
-				</div>
-
-
 		</div>
+		<?php } else{ ?>
+			<div class="press_edit_news _nudge_wrap _CURATION_CARD">
+				<ul class="press_edit_news_list">
+					<?php foreach ($naverNews as $k => $v) {
+						foreach ($v as $k2 => $v2) {
+							if($k2 == 'title'){
+								$title = $v2;
+							}else if($k2 =='orginalLink'){
+								$orginalLink = $v2;
+							}else if($k2 =='description'){
+								$description = $v2;
+							}else if($k2 =='regDate'){
+								$regDate = $v2;
+							}else if($k2 =='imgUrl'){
+								$imgUrl = $v2;
+								$imgUrl = isset($imgUrl)?$imgUrl:"https://mimgnews.pstatic.net/image/origin/037/2021/02/20/28752.jpg?type=nf212_140&amp;ut=1613782889000";
+							}
+
+						}
+
+						?>
+					<li class="press_edit_news_item as_thumb">
+						<a href="<?= $orginalLink; ?>" class="press_edit_news_link">
+						<span class="press_edit_news_thumb">
+							<img src="<?= $imgUrl ?>" width="106" height="70" alt="" onerror="this.src='https://ssl.pstatic.net/static.news/image/news/errorimage/noimage_212x140.png';">
+						</span>
+						<span class="press_edit_news_text">
+							<span class="press_edit_news_title"><?= $title; ?></span>
+							<span class="press_edit_news_description"><?= $description; ?></span>
+							<span class="r_ico_b r_modify"><b><?= $regDate ?></b></span>
+						</span>
+						</a>
+						<a href="<?= $orginalLink ?>" class="r_ico_b r_cmt">100<span class="r_symbol"><span class="blind">이상</span>+</span></a>
+					</li>
+					<?php } ?>
+				</ul>
+			</div>
+		<?php } ?>
 
 	</div>
 
@@ -265,5 +318,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		addCellHeader(document.querySelector('.afternoon-session'));
+        addCellHeader(document.querySelector('.afternoon-sessions'));
 	</script>
 

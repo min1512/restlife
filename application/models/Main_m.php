@@ -30,4 +30,25 @@ class Main_m extends CI_Model
 
 		return $result->result_array();
 	}
+	public function naverNews()
+	{
+		$query = "
+			select
+			 	News.idx,
+			 	News.title,
+			 	News.orginalLink,
+			 	News.imgUrl,
+			 	News.description,
+			 	News.pubDate,
+			 	News.regDate
+			from
+				naverNews News
+			order by News.regDate desc
+			limit 5
+		";
+
+		$result = $this->db->query($query);
+
+		return $result->result_array();
+	}
 }
